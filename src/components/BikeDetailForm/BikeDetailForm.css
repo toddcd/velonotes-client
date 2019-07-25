@@ -1,0 +1,40 @@
+section {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+}
+
+
+.detail-section {
+    display: flex;
+    flex-direction: row;
+    padding: 10px 0 10px 0;
+    border-top: solid 1px crimson;
+    border-bottom: solid 1px crimson;
+}
+
+.position-section {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0 10px 0;
+    border-top: solid 1px crimson;
+    border-bottom: solid 1px crimson;
+}
+
+.note-section {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0 10px 0;
+    border-bottom: solid 1px crimson;
+}
+
+.left {
+    flex: 1;
+    text-align: start;
+}
+
+.right {
+    flex: 1;
+    text-align: start;
+}
