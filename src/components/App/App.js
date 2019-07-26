@@ -7,7 +7,8 @@ import RegistrationPage from '../../routes/RegistrationPage/RegistrationPage'
 import NotFoundPage from '../../routes/NotFoundPage/NotFoundPage'
 import './App.css';
 import BikeDetailPage from "../../routes/BikeDetailPage/BikeDetailPage";
-import BikeCollectionPage from "../../routes/BikeCollection/BikeCollectionPage";
+import CollectionPage from "../../routes/Collection/CollectionPage";
+import CollectionGridPage from "../../routes/CollectionGridPage/CollectionGridPage";
 
 function App() {
     return (
@@ -35,7 +36,12 @@ function App() {
                     <Route
                         exact
                         path={'/collection'}
-                        component={BikeCollectionPage}
+                        component={CollectionPage}
+                    />
+                    <Route
+                        exact
+                        path={'/collection/grid'}
+                        component={CollectionGridPage}
                     />
                     <Route
                         path={'/collection/:bikeId'}

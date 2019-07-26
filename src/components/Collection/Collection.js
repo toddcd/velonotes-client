@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import './BikeCollection.css'
+import './Collection.css'
 
-export default class BikeCollection extends Component {
+export default class Collection extends Component {
 
   render() {
     const { bike } = this.props
