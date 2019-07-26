@@ -7,7 +7,7 @@ import RegistrationPage from '../../routes/RegistrationPage/RegistrationPage'
 import NotFoundPage from '../../routes/NotFoundPage/NotFoundPage'
 import './App.css';
 import BikeDetailPage from "../../routes/BikeDetailPage/BikeDetailPage";
-import CollectionPage from "../../routes/Collection/CollectionPage";
+import CollectionPage from "../../routes/CollectionPage/CollectionPage";
 import CollectionGridPage from "../../routes/CollectionGridPage/CollectionGridPage";
 
 function App() {

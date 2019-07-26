@@ -17,7 +17,7 @@ export default class CollectionGridPage extends Component {
         return (
             <Fragment>
                 <Link to={`/collection`} className='BikeCollection'>
-                    <button>Collection View</button>
+                    <button>Gallery View</button>
                 </Link>
             <CollectionGrid list className='CollectionGridPage'>
                 {this.renderCollection()}

@@ -62,7 +62,7 @@ class CollectionGrid extends Component {
                 make: "Giant", model: "TRX Advanced", price: 32000
             }, {
                 make: "Felt", model: "TX30", price: 72000
-            }]
+            }],
         }
     }
 
@@ -72,7 +72,8 @@ class CollectionGrid extends Component {
                 className="ag-theme-balham"
                 style={{
                     height: '500px',
-                    width: '900px' }}
+                    width: '900px',
+                    padding: '30px'}}
             >
                 <AgGridReact
                     columnDefs={this.state.columnDefs}
