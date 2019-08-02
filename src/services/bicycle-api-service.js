@@ -41,7 +41,7 @@ const BicycleApiService = {
             )
     },
     postPosition(position) {
-        console.log(position)
+        console.log(JSON.stringify(position))
         return fetch(`${config.API_ENDPOINT}/positions`, {
             method: "POST",
             headers: {
@@ -55,6 +55,34 @@ const BicycleApiService = {
                     ? res.json().then(e => Promise.reject(e))
                     : res.json()
             )
+    },
+    patchPosition(position){
+        return fetch(`${config.API_ENDPOINT}/positions/${position.position_id}`, {
+            method: 'PATCH',
+            headers: {
+                'authorization': `bearer ${TokenService.getAuthToken()}`,
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify(position),
+        })
+            .then(res => {
+                if (!res.ok) {
+                    res.json().then(e => Promise.reject(e))
+                }
+            })
+    },
+    deletePosition(positionId) {
+        return fetch(`${config.API_ENDPOINT}/positions/${positionId}`, {
+            method: 'DELETE',
+            headers: {
+                "authorization": `bearer ${TokenService.getAuthToken()}`,
+            },
+        })
+            .then(res => {
+                if (!res.ok) {
+                    res.json().then(e => Promise.reject(e))
+                }
+            })
     },
     getNotes(bikeId) {
         return fetch(`${config.API_ENDPOINT}/notes/${bikeId}`, {

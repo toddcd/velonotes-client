@@ -17,6 +17,8 @@ const BikeContext = React.createContext({
     },
     removeNote: () => {
     },
+    removePosition: () => {
+    },
 })
 
 export default BikeContext
@@ -46,8 +48,27 @@ export class BikeProvider extends Component {
                 mrf_bike_id: source_bike.mrf_bike_id,
                 model: source_bike.model,
                 notes: notes,
+                positions: source_bike.positions,
                 user_bike_id: source_bike.user_bike_id,
                 year: source_bike.year
+        }
+        this.setState({bike})
+    }
+
+    removePosition = positionId => {
+        let source_bike = this.state.bike
+        const positions = source_bike.positions.filter(pos => {
+            return pos.position_id != positionId
+        })
+        const bike = {
+            geometry: source_bike.geometry,
+            make: source_bike.make,
+            mrf_bike_id: source_bike.mrf_bike_id,
+            model: source_bike.model,
+            notes: source_bike.notes,
+            positions: positions,
+            user_bike_id: source_bike.user_bike_id,
+            year: source_bike.year
         }
         this.setState({bike})
     }
@@ -70,6 +91,7 @@ export class BikeProvider extends Component {
             setBike: this.setBike,
             clearBike: this.clearBike,
             removeNote: this.removeNote,
+            removePosition: this.removePosition,
         }
         return (
             <BikeContext.Provider value={value}>

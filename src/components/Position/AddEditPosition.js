@@ -12,21 +12,21 @@ export default class AddEditPosition extends Component {
         event.preventDefault()
         const {bikeId} = this.props.match.params
         const position = {
-            user_bike_id :bikeId,
+            user_bike_id: parseFloat(bikeId),
             name: event.target.name.value,
             description: event.target.description.value,
             active: event.target.active.value,
-            stem: event.target.stem.value,
-            stem_angle: event.target.stem_angle.value,
-            handlebar: event.target.handlebar.value,
+            stem: parseFloat(event.target.stem.value),
+            stem_angle: parseFloat(event.target.stem_angle.value),
+            handlebar: parseFloat(event.target.handlebar.value),
             handlebar_bend: event.target.handlebar_bend.value,
-            crank: event.target.crank.value,
-            crank_q: event.target.crank_q.value,
-            seat: event.target.seat.value,
-            seat_height: event.target.seat_height.value,
-            handlebar_reach: event.target.handlebar_reach.value,
-            handlebar_drop: event.target.handlebar_drop.value,
-            setback: event.target.setback.value,
+            crank: parseFloat(event.target.crank.value),
+            crank_q: parseFloat(event.target.crank_q.value),
+            seat: parseFloat(event.target.seat.value),
+            seat_height: parseFloat(event.target.seat_height.value),
+            handlebar_reach: parseFloat(event.target.handlebar_reach.value),
+            handlebar_drop: parseFloat(event.target.handlebar_drop.value),
+            setback: parseFloat(event.target.setback.value)
         }
 
         BicycleApiService.postPosition(position)
@@ -38,15 +38,31 @@ export default class AddEditPosition extends Component {
 
     handleUpdatePosition = (event) => {
         event.preventDefault()
-
         const {bikeId} = this.props.match.params
+        const positionId = event.target.dataset.position_id
+
+        console.log(this.props)
+
         const position = {
-            note_id: event.target.dataset.note_id,
-            note_type: event.target.type.value,
-            note: event.target.note.value
+            position_id: parseFloat(positionId),
+            user_bike_id: parseFloat(bikeId),
+            name: event.target.name.value,
+            description: event.target.description.value,
+            active: event.target.active.value,
+            stem: parseFloat(event.target.stem.value),
+            stem_angle: parseFloat(event.target.stem_angle.value),
+            handlebar: parseFloat(event.target.handlebar.value),
+            handlebar_bend: event.target.handlebar_bend.value,
+            crank: parseFloat(event.target.crank.value),
+            crank_q: parseFloat(event.target.crank_q.value),
+            seat: parseFloat(event.target.seat.value),
+            seat_height: parseFloat(event.target.seat_height.value),
+            handlebar_reach: parseFloat(event.target.handlebar_reach.value),
+            handlebar_drop: parseFloat(event.target.handlebar_drop.value),
+            setback: parseFloat(event.target.setback.value)
         }
 
-        BicycleApiService.patchNote(bikeId, position)
+        BicycleApiService.patchPosition(position)
             .then(this.context.setPosition).then(() =>
             this.props.history.push(`/gallery/${bikeId}`)
         )
@@ -63,7 +79,6 @@ export default class AddEditPosition extends Component {
     setFormValues = () => {
         let editPosition = null
         if (this.props.location.state) {
-            console.log(editPosition)
             editPosition = this.props.location.state.editPosition
         }
         const formValues = {
@@ -119,7 +134,7 @@ export default class AddEditPosition extends Component {
         return (
             <div className='add-note'>
                 <h2>{page_title}</h2>
-                <form data-note_id={position_id} onSubmit={handleSubmit}>
+                <form data-position_id={position_id} onSubmit={handleSubmit}>
                     <Section className='position-detail-section'>
                         <label htmlFor='name'>Name</label>
                         <input className='Input' type='text' name='name' defaultValue={name}/>

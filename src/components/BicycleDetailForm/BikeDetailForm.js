@@ -12,12 +12,15 @@ export default class BikeDetailForm extends Component {
     }
 
     renderPositions() {
-        const positions = this.props.bike.positions
-        if(positions) {
-            return positions.map(p =>
+        const bike = this.props.bike
+        const handleDeletePosition = this.props.deletePosition
+        if(bike.positions) {
+            return bike.positions.map(p =>
                 <Position
                     key={p.position_id}
                     position={p}
+                    bike={bike}
+                    handleDeletePosition={handleDeletePosition}
                 />
             )
         }else{

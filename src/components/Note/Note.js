@@ -22,12 +22,12 @@ export default class Note extends Component {
     }
 
     render() {
-        const n = this.props.note
+        const note = this.props.note
         const bike = this.props.bike
         return (
             <div className="note-container">
                 <button className="btn btn-block" onClick={ this.toggle }>
-                    {n.type} ({n.note.substring(0, 12)}...)
+                    {note.type} ({note.note.substring(0, 12)}...)
                 </button>
                 <div id="note-detail" className={"collapse" + (this.state.open ? ' in' : '')}>
                     <Link to={{
@@ -36,11 +36,11 @@ export default class Note extends Component {
                             editNote: this.props.note
                         }
                     }}>
-                        <button className='delete-edit-button' data-id={n.note_id} >Edit</button>
+                        <button className='delete-edit-button' data-id={note.note_id} >Edit</button>
                     </Link>
-                    <button className='delete-edit-button' data-id={n.note_id} onClick={this.props.handleDeleteNote}>Delete</button>
+                    <button className='delete-edit-button' data-id={note.note_id} onClick={this.props.handleDeleteNote}>Delete</button>
                     <div className='note-content'>
-                        <p>{n.note}</p>
+                        <p>{note.note}</p>
                     </div>
                 </div>
             </div>

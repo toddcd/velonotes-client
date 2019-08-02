@@ -28,6 +28,7 @@ export default class Position extends Component {
 
     render() {
         const position = this.props.position;
+        const bike = this.props.bike
         return (
             <div className="position-container">
                 <button className="btn btn-block" onClick={ this.toggle }>
@@ -36,7 +37,7 @@ export default class Position extends Component {
                 <div id="position-details" className={"collapse" + (this.state.open ? ' in' : '')}>
 
                     <Link to={{
-                        pathname:`/gallery/${position.user_bike_id}/editposition`,
+                        pathname:`/gallery/${bike.user_bike_id}/editposition`,
                         state:{
                             editPosition: this.props.position
                         }
@@ -48,11 +49,11 @@ export default class Position extends Component {
                         <div className='left'>
                             <p>
                                 Name: {position.name}<br/>
-                                Desc: {position.desc}<br/><br/>
+                                Desc: {position.description}<br/><br/>
 
                                 Crank Length: {position.crank}<br/>
-                                Stem Length/Angle: {position.stem}/{position.stemAngle}<br/>
-                                Handlebar Width: {position.handleBar}<br/>
+                                Stem Length/Angle: {position.stem}/{position.stem_angle}<br/>
+                                Handlebar Width: {position.handlebar}<br/>
                                 Seat Width: {position.seat}
                             </p>
                         </div>

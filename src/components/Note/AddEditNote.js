@@ -17,7 +17,7 @@ export default class AddEditNote extends Component {
         }
 
         BicycleApiService.postNote(bikeId, note)
-            .then(this.context.setNotes).then(() =>
+            .then(() =>
             this.props.history.push(`/gallery/${bikeId}`)
         )
             .catch(this.context.setError)
@@ -33,7 +33,7 @@ export default class AddEditNote extends Component {
         }
 
         BicycleApiService.patchNote(bikeId, note)
-            .then(this.context.setNotes).then(() =>
+            .then(() =>
             this.props.history.push(`/gallery/${bikeId}`)
         )
             .catch(this.context.setError)

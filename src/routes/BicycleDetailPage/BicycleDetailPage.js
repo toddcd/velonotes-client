@@ -23,6 +23,14 @@ export default class BicycleDetailPage extends Component {
             .catch(this.context.setError)
     }
 
+    handleDeletePosition = (event) => {
+        const position_id = event.target.dataset.id;
+
+        BicycleApiService.deletePosition(position_id)
+            .then(this.context.removePosition(position_id))
+            .catch(this.context.setError)
+    }
+
     handleDeleteNote = (event) => {
         const note_id = event.target.dataset.id;
 
@@ -41,7 +49,11 @@ export default class BicycleDetailPage extends Component {
             return (
                 <>
                     <h2>{bike.make}</h2>
-                    <BikeDetailForm deleteNote={this.handleDeleteNote} bike={bike}/>
+                    <BikeDetailForm
+                        deleteNote={this.handleDeleteNote}
+                        deletePosition={this.handleDeletePosition}
+                        bike={bike}
+                    />
                 </>
             )
         }
