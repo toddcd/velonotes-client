@@ -14,7 +14,7 @@ export default class Position extends Component {
         },
     }
 
-    toggle() {
+    toggle = () => {
         this.setState({
             open: !this.state.open
         });
@@ -31,7 +31,7 @@ export default class Position extends Component {
 
         return (
             <div className="position-container">
-                <button className="btn btn-block" onClick={this.toggle.bind(this)}>
+                <button className="btn btn-block" onClick={ this.toggle }>
                     position
                 </button>
                 <div id="position-details" className={"collapse" + (this.state.open ? ' in' : '')}>

@@ -7,8 +7,30 @@
     width: 50%;
 }
 
+.add-note > form {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    padding: 10px;
+    width: 80%;
+}
+
 .note-container {
-    padding: 2px;
+    padding: 3px;
+}
+
+.note-content{
+    border: 1px solid lightcoral;
+    border-radius: 3px;
+}
+
+.delete-edit-button {
+    margin: 2px 0 2px 0;
+    background: transparent;
+    border-style: solid;
+    border-color: transparent;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 div, span {

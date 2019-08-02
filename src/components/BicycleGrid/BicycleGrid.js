@@ -4,7 +4,7 @@ import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-balham.css';
 
-class CollectionGrid extends Component {
+class BicycleGrid extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -84,4 +84,4 @@ class CollectionGrid extends Component {
     }
 }
 
-export default CollectionGrid;
+export default BicycleGrid;

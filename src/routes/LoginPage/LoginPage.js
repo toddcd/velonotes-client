@@ -11,10 +11,8 @@ export default class LoginPage extends Component {
   }
 
   handleLoginSuccess = () => {
-
     const { history } = this.props
-    history.push('/collection')
-
+    history.push('/gallery')
   }
 
   render() {

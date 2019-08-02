@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 //import {Button, Input, Section} from '../Utils/Utils'
 import './Note.css'
+import {Link} from "react-router-dom";
 
 export default class Note extends Component {
     constructor() {
@@ -10,37 +11,32 @@ export default class Note extends Component {
 
     static
     defaultProps = {
-        handlePositionUpdate: () => {
+        handleNoteUpdate: () => {
         },
     }
 
-    toggle() {
+    toggle = () => {
         this.setState({
             open: !this.state.open
         });
     }
 
-    handleUpdate = (event) => {
-        event.preventDefault()
-
-    }
-
     render() {
-
         const n = this.props.note
-        console.log(n)
-
+        const bike = this.props.bike
         return (
             <div className="note-container">
-                <button className="btn btn-block" onClick={this.toggle.bind(this)}>
-                    note
+                <button className="btn btn-block" onClick={ this.toggle }>
+                    {n.type} ({n.note.substring(0, 10)}...)
                 </button>
                 <div id="note-detail" className={"collapse" + (this.state.open ? ' in' : '')}>
-                    <br/>
-                    <button>Edit</button>
-                    <button>Delete</button>
-                    <br/>
-                    Note: {n.note}
+                    <Link to={`/gallery/${bike.user_bike_id}/editnote`}>
+                        <button className='delete-edit-button' data-id={n.note_id} onClick={this.props.handleUpdateNote}>Edit</button>
+                    </Link>
+                    <button className='delete-edit-button' data-id={n.note_id} onClick={this.props.handleDeleteNote}>Delete</button>
+                    <div className='note-content'>
+                        <p>{n.note}</p>
+                    </div>
                 </div>
             </div>
         )

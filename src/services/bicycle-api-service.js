@@ -1,22 +1,22 @@
 import config from "../config"
 import TokenService from "../services/token-service"
 
-const BikeApiService = {
+const BicycleApiService = {
     getBikes() {
+        return fetch(`${config.API_ENDPOINT}/bicycles`, {
+            headers: {
+                "authorization": `bearer ${TokenService.getAuthToken()}`,
+            },
+        })
+            .then(res =>
+                (!res.ok)
+                    ? res.json().then(e => Promise.reject(e))
+                    : res.json()
+            )
+    },
 
-        return fetch(`${config.API_ENDPOINT}/collection`, {
-            headers: {
-                "authorization": `bearer ${TokenService.getAuthToken()}`,
-            },
-        })
-            .then(res =>
-                (!res.ok)
-                    ? res.json().then(e => Promise.reject(e))
-                    : res.json()
-            )
-    },
     getBike(bikeId) {
-        return fetch(`${config.API_ENDPOINT}/collection/${bikeId}`, {
+        return fetch(`${config.API_ENDPOINT}/bicycles/${bikeId}`, {
             headers: {
                 "authorization": `bearer ${TokenService.getAuthToken()}`,
             },
@@ -27,8 +27,9 @@ const BikeApiService = {
                     : res.json()
             )
     },
+
     getPositions(bikeId) {
-        return fetch(`${config.API_ENDPOINT}/collection/${bikeId}/positions`, {
+        return fetch(`${config.API_ENDPOINT}/positions/${bikeId}/positions`, {
             headers: {
                 "authorization": `bearer ${TokenService.getAuthToken()}`,
             },
@@ -58,7 +59,7 @@ const BikeApiService = {
             )
     },
     getNotes(bikeId) {
-        return fetch(`${config.API_ENDPOINT}/collection/${bikeId}/notes`, {
+        return fetch(`${config.API_ENDPOINT}/notes/${bikeId}`, {
             headers: {
                 "authorization": `bearer ${TokenService.getAuthToken()}`,
             },
@@ -69,16 +70,32 @@ const BikeApiService = {
                     : res.json()
             )
     },
+
+    deleteNote(noteId) {
+        return fetch(`${config.API_ENDPOINT}/notes/${noteId}`, {
+            method: 'DELETE',
+            headers: {
+                "authorization": `bearer ${TokenService.getAuthToken()}`,
+            },
+        })
+            .then(res => {
+                if (!res.ok) {
+                    res.json().then(e => Promise.reject(e))
+                }
+            })
+    },
+
     postNote(bikeId, note) {
-        return fetch(`${config.API_ENDPOINT}/positions`, {
+        return fetch(`${config.API_ENDPOINT}/notes`, {
             method: 'POST',
             headers: {
                 'authorization': `bearer ${TokenService.getAuthToken()}`,
                 'content-type': 'application/json',
             },
             body: JSON.stringify({
-                bike_id: bikeId,
-                position: note,
+                user_bike_id: bikeId,
+                note_type: note.note_type,
+                note: note.note
             }),
         })
             .then(res =>
@@ -89,4 +106,4 @@ const BikeApiService = {
     }
 }
 
-export default BikeApiService
+export default BicycleApiService

@@ -1,23 +1,22 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 
 export const nullBike = {
-    bike: {},
-    positions: [],
-    notes: [],
+    bike: {}
 }
 
 const BikeContext = React.createContext({
     bike: nullBike,
-    reviews: [],
     error: null,
-    setError: () => {},
-    clearError: () => { },
-    setBike: () => {},
-    clearBike: () => {},
-    setPositions: () => {},
-    addPosition: () => {},
-    setNotes: () => {},
-    addNote: () => {},
+    setError: () => {
+    },
+    clearError: () => {
+    },
+    setBike: () => {
+    },
+    clearBike: () => {
+    },
+    removeNote: () => {
+    },
 })
 
 export default BikeContext
@@ -28,61 +27,42 @@ export class BikeProvider extends Component {
         error: null,
     };
 
-    setError = error => {
-        console.error(error)
-        this.setState({ error })
-    }
-
-    clearError = () => {
-        this.setState({ error: null })
-    }
-
     setBike = bike => {
-        this.setState({ bike })
-    }
-
-    setPositions = positions => {
-        this.setState({ positions })
-    }
-
-    setNotes = positions => {
-        this.setState({ positions })
+        this.setState({bike})
     }
 
     clearBike = () => {
         this.setBike(nullBike)
-        this.setPositions([])
-        this.setNotes([])
     }
 
-    addPosition = position => {
-        this.setPositions([
-            ...this.state.positions,
-            position
-        ])
+    removeNote = noteId => {
+        let source_bike = this.state.bike
+        const notes = source_bike.notes.filter(note => {
+            return  note.note_id != noteId
+        })
+        const bike = { notes: notes }
+        this.setState({ bike })
     }
 
-    addNote = note => {
-        this.setReviews([
-            ...this.state.notes,
-            note
-        ])
+
+    setError = error => {
+        console.error(error)
+        this.setState({error})
+    }
+
+    clearError = () => {
+        this.setState({error: null})
     }
 
     render() {
         const value = {
             bike: this.state.bike,
-            positions: this.state.positions,
-            notes: this.state.notes,
             error: this.state.error,
             setError: this.setError,
             clearError: this.clearError,
             setBike: this.setBike,
-            setPositions: this.setPositions,
-            setNotes: this.setNotes,
             clearBike: this.clearBike,
-            addPosition: this.addPosition,
-            addNote: this.addNote,
+            removeNote: this.removeNote,
         }
         return (
             <BikeContext.Provider value={value}>

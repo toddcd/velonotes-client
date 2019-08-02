@@ -1,23 +1,22 @@
 import React, { Component } from 'react'
 
-
-const BikeCollectionContext = React.createContext({
-    bikeList: [],
+const BicyclesContext = React.createContext({
+    userBikeList: {},
     error: null,
     setError: () => {},
     clearError: () => {},
     setBikeList: () => {},
 })
-export default BikeCollectionContext
+export default BicyclesContext
 
-export class BikeCollectionProvider extends Component {
+export class BicyclesProvider extends Component {
     state = {
-        bikeList: [],
+        userBikeList: {},
         error: null,
     };
 
-    setBikeList = bikeList => {
-        this.setState({ bikeList })
+    setBikeList = userBikeList => {
+        this.setState({ userBikeList: userBikeList })
     }
 
     setError = error => {
@@ -31,16 +30,16 @@ export class BikeCollectionProvider extends Component {
 
     render() {
         const value = {
-            bikeList: this.state.bikeList,
+            userBikeList: this.state.userBikeList,
             error: this.state.error,
             setError: this.setError,
             clearError: this.clearError,
             setBikeList: this.setBikeList,
         }
         return (
-            <BikeCollectionContext.Provider value={value}>
+            <BicyclesContext.Provider value={value}>
                 {this.props.children}
-            </BikeCollectionContext.Provider>
+            </BicyclesContext.Provider>
         )
     }
 }
