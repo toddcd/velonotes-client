@@ -10,7 +10,7 @@ import BicycleDetailPage from "../../routes/BicycleDetailPage/BicycleDetailPage"
 import BicycleGalleryPage from "../../routes/BicycleGalleryPage/BicycleGalleryPage";
 import BicycleGridPage from "../../routes/BicycleGridPage/BicycleGridPage";
 import AddEditNote from "../Note/AddEditNote";
-import AddPosition from "../../components/Position/AddPosition";
+import AddEditPosition from "../Position/AddEditPosition";
 class App extends Component {
     state = { hasError: false }
 
@@ -73,7 +73,16 @@ class App extends Component {
                         <Route
                             exact
                             path={'/gallery/:bikeId/addposition'}
-                            component={AddPosition}
+                            render={(renderProps) =>
+                                (<AddEditPosition {...renderProps} />
+                                )}
+                        />
+                        <Route
+                            exact
+                            path={'/gallery/:bikeId/editposition'}
+                            render={(renderProps) =>
+                                (<AddEditPosition {...renderProps} />
+                                )}
                         />
                         <Route
                             component={NotFoundPage}

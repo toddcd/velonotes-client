@@ -12,6 +12,28 @@
 
 }
 
+.position-component-setup {
+    display: flex;
+    flex-direction: row;
+}
+
+.Input,
+.Select,
+.Textarea {
+    border: 1px solid #ddd;
+    display: block;
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    padding: 10px;
+    text-align: left;
+    width: 100%;
+    border-radius: 4px;
+}
+.Textarea {
+    resize: vertical;
+    width: 96%;
+}
+
 .left {
     flex: 1;
 }

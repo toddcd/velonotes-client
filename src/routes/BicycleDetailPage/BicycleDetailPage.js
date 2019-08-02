@@ -25,7 +25,6 @@ export default class BicycleDetailPage extends Component {
 
     handleDeleteNote = (event) => {
         const note_id = event.target.dataset.id;
-        console.log(`Deleting note ${note_id} note.`)
 
         BicycleApiService.deleteNote(note_id)
             .then(this.context.removeNote(note_id))

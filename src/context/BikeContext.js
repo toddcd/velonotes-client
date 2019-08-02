@@ -38,12 +38,19 @@ export class BikeProvider extends Component {
     removeNote = noteId => {
         let source_bike = this.state.bike
         const notes = source_bike.notes.filter(note => {
-            return  note.note_id != noteId
+            return note.note_id != noteId
         })
-        const bike = { notes: notes }
-        this.setState({ bike })
+        const bike = {
+                geometry: source_bike.geometry,
+                make: source_bike.make,
+                mrf_bike_id: source_bike.mrf_bike_id,
+                model: source_bike.model,
+                notes: notes,
+                user_bike_id: source_bike.user_bike_id,
+                year: source_bike.year
+        }
+        this.setState({bike})
     }
-
 
     setError = error => {
         console.error(error)

@@ -40,17 +40,15 @@ const BicycleApiService = {
                     : res.json()
             )
     },
-    postPosition(bikeId, position) {
+    postPosition(position) {
+        console.log(position)
         return fetch(`${config.API_ENDPOINT}/positions`, {
             method: "POST",
             headers: {
                 "authorization": `bearer ${TokenService.getAuthToken()}`,
                 "content-type": "application/json",
             },
-            body: JSON.stringify({
-                bike_id: bikeId,
-                position: position,
-            }),
+            body: JSON.stringify(position),
         })
             .then(res =>
                 (!res.ok)
@@ -103,6 +101,26 @@ const BicycleApiService = {
                     ? res.json().then(e => Promise.reject(e))
                     : res.json()
             )
+    },
+    patchNote(bikeId, note){
+        return fetch(`${config.API_ENDPOINT}/notes/${note.note_id}`, {
+            method: 'PATCH',
+            headers: {
+                'authorization': `bearer ${TokenService.getAuthToken()}`,
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify({
+                user_bike_id: bikeId,
+                note_id: note.note_id,
+                note_type: note.note_type,
+                note: note.note
+            }),
+        })
+            .then(res => {
+                if (!res.ok) {
+                    res.json().then(e => Promise.reject(e))
+                }
+            })
     }
 }
 

@@ -27,11 +27,16 @@ export default class Note extends Component {
         return (
             <div className="note-container">
                 <button className="btn btn-block" onClick={ this.toggle }>
-                    {n.type} ({n.note.substring(0, 10)}...)
+                    {n.type} ({n.note.substring(0, 12)}...)
                 </button>
                 <div id="note-detail" className={"collapse" + (this.state.open ? ' in' : '')}>
-                    <Link to={`/gallery/${bike.user_bike_id}/editnote`}>
-                        <button className='delete-edit-button' data-id={n.note_id} onClick={this.props.handleUpdateNote}>Edit</button>
+                    <Link to={{
+                        pathname:`/gallery/${bike.user_bike_id}/editnote`,
+                        state:{
+                            editNote: this.props.note
+                        }
+                    }}>
+                        <button className='delete-edit-button' data-id={n.note_id} >Edit</button>
                     </Link>
                     <button className='delete-edit-button' data-id={n.note_id} onClick={this.props.handleDeleteNote}>Delete</button>
                     <div className='note-content'>

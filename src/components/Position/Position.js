@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 //import {Button, Input, Section} from '../Utils/Utils'
 import './Position.css'
+import {Link} from "react-router-dom";
 
 export default class Position extends Component {
     constructor() {
@@ -26,38 +27,43 @@ export default class Position extends Component {
     }
 
     render() {
-
-        const p = this.props.position;
-
+        const position = this.props.position;
         return (
             <div className="position-container">
                 <button className="btn btn-block" onClick={ this.toggle }>
                     position
                 </button>
                 <div id="position-details" className={"collapse" + (this.state.open ? ' in' : '')}>
-                    <br/>
-                    <button>Edit</button>
-                    <button>Delete</button>
+
+                    <Link to={{
+                        pathname:`/gallery/${position.user_bike_id}/editposition`,
+                        state:{
+                            editPosition: this.props.position
+                        }
+                    }}>
+                        <button className='delete-edit-button' data-id={position.position_id} >Edit</button>
+                    </Link>
+                    <button className='delete-edit-button' data-id={position.position_id} onClick={this.props.handleDeletePosition}>Delete</button>
                     <div className='position'>
                         <div className='left'>
                             <p>
-                                Name: {p.name}<br/>
-                                Desc: {p.desc}<br/><br/>
+                                Name: {position.name}<br/>
+                                Desc: {position.desc}<br/><br/>
 
-                                Crank Length: {p.crank}<br/>
-                                Stem Length/Angle: {p.stem}/{p.stemAngle}<br/>
-                                Handlebar Width: {p.handleBar}<br/>
-                                Seat Width: {p.seat}
+                                Crank Length: {position.crank}<br/>
+                                Stem Length/Angle: {position.stem}/{position.stemAngle}<br/>
+                                Handlebar Width: {position.handleBar}<br/>
+                                Seat Width: {position.seat}
                             </p>
                         </div>
                         <div className='right'>
                             <br/>
                             <br/>
                             <br/>
-                            Seat Height (C-Top): {p.seatHeight}<br/>
-                            Bar Reach (C-Tip): {p.reach}<br/>
-                            Bar Drop: {p.drop}<br/>
-                            Setback: {p.setback}<br/>
+                            Seat Height (C-Top): {position.seatHeight}<br/>
+                            Bar Reach (C-Tip): {position.reach}<br/>
+                            Bar Drop: {position.drop}<br/>
+                            Setback: {position.setback}<br/>
                         </div>
                     </div>
                 </div>
