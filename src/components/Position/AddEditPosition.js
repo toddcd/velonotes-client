@@ -155,22 +155,22 @@ export default class AddEditPosition extends Component {
                             <label htmlFor='handlebar_bend'>Handlebar Bend</label>
                             <input className='Input' type='text' name='handlebar_bend' defaultValue={handlebar_bend}/>
                             <label htmlFor='crank'>Crank Length</label>
-                            <input className='Input' type='number' name='crank' defaultValue={crank}/>
+                            <input className='Input' type='number' step=".50" name='crank' defaultValue={crank}/>
                             <label htmlFor='crank_q'>Crank Qfactor</label>
-                            <input className='Input' type='number' name='crank_q' defaultValue={crank_q}/>
+                            <input className='Input' type='number' step=".50" name='crank_q' defaultValue={crank_q}/>
                             <label htmlFor='seat'>Seat Width</label>
                             <input className='Input' type='number' name='seat' defaultValue={seat}/>
                         </Section>
                         <Section className='position-section-setup'>
                             <h3>Setup</h3>
                             <label htmlFor='seat_height'>Seat Height</label>
-                            <input className='Input' type='number' name='seat_height' defaultValue={seat_height}/>
+                            <input className='Input' type='number' step=".50" name='seat_height' defaultValue={seat_height}/>
                             <label htmlFor='handlebar_reach'>Handlebar Reach</label>
-                            <input className='Input' type='number' name='handlebar_reach' defaultValue={handlebar_reach}/>
+                            <input className='Input' type='number' step=".50" name='handlebar_reach' defaultValue={handlebar_reach}/>
                             <label htmlFor='handlebar_drop'>Handlebar Drop</label>
-                            <input className='Input' type='number' name='handlebar_drop' defaultValue={handlebar_drop}/>
+                            <input className='Input' type='number' step=".50" name='handlebar_drop' defaultValue={handlebar_drop}/>
                             <label htmlFor='setback'>Setback</label>
-                            <input className='Input' type='number' name='setback' defaultValue={setback}/>
+                            <input className='Input' type='number' step=".50" name='setback' defaultValue={setback}/>
                         </Section>
                     </div>
                     <div className='position-button-div'>

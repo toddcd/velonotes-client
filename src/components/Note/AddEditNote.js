@@ -4,7 +4,6 @@ import BicycleApiService from "../../services/bicycle-api-service";
 import './Note.css'
 
 export default class AddEditNote extends Component {
-
     static contextType = BikeContext
 
     handleAddNote = (event) => {

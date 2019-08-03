@@ -11,6 +11,8 @@ import BicycleGalleryPage from "../../routes/BicycleGalleryPage/BicycleGalleryPa
 import BicycleGridPage from "../../routes/BicycleGridPage/BicycleGridPage";
 import AddEditNote from "../Note/AddEditNote";
 import AddEditPosition from "../Position/AddEditPosition";
+import AddEditBicycle from "../BicycleGallery/AddEditBicycle";
+
 class App extends Component {
     state = { hasError: false }
 
@@ -46,6 +48,13 @@ class App extends Component {
                             exact
                             path={'/gallery'}
                             component={BicycleGalleryPage}
+                        />
+                        <Route
+                            exact
+                            path={'/gallery/newbike'}
+                            render={(renderProps) =>
+                                (<AddEditBicycle {...renderProps} />
+                                )}
                         />
                         <Route
                             path={'/grid'}
