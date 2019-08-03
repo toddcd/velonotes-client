@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {Button, Input, Required} from '../Utils/Utils'
+import AuthApiService from '../../services/auth-api-service'
 import './RegistrationForm.css'
 
 export default class RegistrationForm extends Component {
@@ -12,17 +13,27 @@ export default class RegistrationForm extends Component {
 
     handleSubmit = ev => {
         ev.preventDefault()
-        const {full_name, user_name, password, height_feet, height_inches} = ev.target
+        const {full_name, user_name, password  } = ev.target
 
-        console.log('registration form submitted')
-        console.log(full_name.value, user_name.value, password.value, height_feet.value, height_inches.value)
 
-        full_name.value = ''
-        user_name.value = ''
-        password.value = ''
-        height_feet.value = ''
-        height_inches.value = ''
-        this.props.onRegistrationSuccess()
+        this.setState({ error: null })
+        AuthApiService.postRegistration({
+            user_name: user_name.value,
+            password: password.value,
+            full_name: full_name.value,
+            // nickname: nick_name.value,
+         })
+            .then(user => {
+                full_name.value = ''
+                // nick_name.value = ''
+                user_name.value = ''
+                password.value = ''
+                this.props.onRegistrationSuccess()
+            })
+            .catch(res => {
+                this.setState({ error: res.error })
+            })
+
     }
 
     render() {
@@ -67,31 +78,6 @@ export default class RegistrationForm extends Component {
                         required
                         id='RegistrationForm__password'>
                     </Input>
-                </div>
-                <div className='height'>
-                    <label htmlFor='RegistrationForm__height'>
-                        Height
-                    </label>
-                    <div className='height_imperial_inputs'>
-                        <label htmlFor='RegistrationForm__height_feet'>
-                            Feet
-                        </label>
-                        <Input
-                            name='height_feet'
-                            type='number'
-                            required
-                            id='RegistrationForm__height_feet'>
-                        </Input>
-                        <label htmlFor='RegistrationForm__height_inch'>
-                            Inches
-                        </label>
-                        <Input
-                            name='height_inches'
-                            type='number'
-                            required
-                            id='RegistrationForm__height_inches'>
-                        </Input>
-                    </div>
                 </div>
                 <Button type='submit'>
                     Register

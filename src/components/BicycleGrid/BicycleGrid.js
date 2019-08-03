@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-//import './App.css';
-import { AgGridReact } from 'ag-grid-react';
+import React, {Component} from 'react';
+import './BicycleGrid.css';
+import {AgGridReact, AgGridColumn, SortableHeaderComponent } from 'ag-grid-react';
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-balham.css';
 
@@ -14,8 +14,8 @@ class BicycleGrid extends Component {
                 headerName: "Model", field: "model"
             },
                 {
-                headerName: "Size", field: "size"
-            },
+                    headerName: "Size", field: "size"
+                },
                 {
                     headerName: "Category", field: "category"
                 },
@@ -68,18 +68,37 @@ class BicycleGrid extends Component {
 
     render() {
         return (
-            <div
-                className="ag-theme-balham"
-                style={{
-                    height: '500px',
-                    width: '900px',
-                    padding: '30px'}}
-            >
-                <AgGridReact
-                    columnDefs={this.state.columnDefs}
-                    rowData={this.state.rowData}>
-                </AgGridReact>
-            </div>
+            <section className='bla'>
+                <div
+                    className="ag-theme-balham grid-view"
+                    style={{
+                        height: '500px',
+                        width: '900px',
+                    }}
+                >
+                    <AgGridReact
+                        // listening for events
+                        onGridReady={this.onGridReady}
+
+                        // binding to array properties
+                        rowData={this.state.rowData}
+                        columnDefs={this.state.columnDefs}
+
+                        // setting default column properties
+                        defaultColDef={{
+                            sortable: true,
+                            filter: true,
+                            headerComponentParams: {
+                                menuIcon: 'fa-bars'
+                            }
+                        }}>
+
+
+
+                        {/*rowData={this.state.rowData}>*/}
+                    </AgGridReact>
+                </div>
+            </section>
         );
     }
 }

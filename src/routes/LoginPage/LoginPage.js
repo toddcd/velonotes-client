@@ -12,7 +12,7 @@ export default class LoginPage extends Component {
 
   handleLoginSuccess = () => {
     const { history } = this.props
-    history.push('/gallery')
+    history.push('/')
   }
 
   render() {

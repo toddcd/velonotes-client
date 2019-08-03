@@ -1,5 +1,5 @@
 import React, {Component, Fragment} from 'react'
-import { Link } from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import BicyclesContext from '../../context/BicyclesContext'
 import BicycleApiService from '../../services/bicycle-api-service'
 import {Section} from '../../components/Utils/Utils'
@@ -28,34 +28,36 @@ export default class BicycleGalleryPage extends Component {
     }
 
     renderBicycleGallery() {
-        const { userBikeList } = this.context
+        const {userBikeList} = this.context
+
         const bicycles = userBikeList.bicycles
-        if(bicycles) {
-            return bicycles.map(bike =>
-                <BicycleGallery
-                    key={bike.user_bike_id}
-                    bike={bike}
-                />
+        if (bicycles) {
+            return (
+                <Fragment>
+                    <Link to={`/gallery/newbike`} className='BikeCollection'>
+                        <button className='Button'>Add Bicycle</button>
+                    </Link>
+                    <Link to={`/grid`} className='BikeCollection'>
+                        <button className='Button'>Grid View</button>
+                    </Link>
+                    {bicycles.map(bike =>
+                        <BicycleGallery
+                            key={bike.user_bike_id}
+                            bike={bike}
+                        />)}
+                </Fragment>
             )
         }
     }
 
     render() {
-        const { error } = this.context
+        const {error} = this.context
         return (
-            <Fragment>
-                <Link to={`/gallery/newbike`} className='BikeCollection'>
-                    <button className='Button'>Add Bicycle</button>
-                </Link>
-                <Link to={`/grid`} className='BikeCollection'>
-                    <button className='Button'>Grid View</button>
-                </Link>
                 <Section list className='BikeCollectionPage'>
                     {error
                         ? <p className='red'>There was an error. Are you logged in?</p>
                         : this.renderBicycleGallery()}
                 </Section>
-            </Fragment>
         )
     }
 }

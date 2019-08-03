@@ -11,6 +11,11 @@ export default class AddEditBicycle extends Component {
         model: [],
         year: [],
         size: [],
+        makeOptions: [],
+        modelOptions: [],
+        yearOptions: [],
+        sizeOptions: [],
+
     };
 
     componentDidMount() {
@@ -23,14 +28,17 @@ export default class AddEditBicycle extends Component {
                 return make[1]
             }
         })
+
         const model = mlist.filter((model) => {
             if (model[1].type === 'model') {
                 return model[1]
-            }})
+            }
+        })
         const year = mlist.filter((year) => {
             if (year[1].type === 'year') {
                 return year[1]
-            }})
+            }
+        })
         const size = sList.map((size) => {
             return size[1]
         })
@@ -46,57 +54,63 @@ export default class AddEditBicycle extends Component {
 
     handleAddBicycle = (event) => {
         event.preventDefault()
-        const {userId} = this.props.match.params
         const bike = {
-            user_id: userId,
-            mfr_bike_id: event.target.mfr_bike_id.value,
+            mfr_bike_id: parseFloat(event.target.year.value),
             nick_name: event.target.nick_name.value,
-            geo_id: event.target.geo_id.value
+            geo_id: parseFloat(event.target.size.value),
         }
 
-        BicycleApiService.postBicycle(bike)
-            .then(b =>
-                this.props.history.push(`/gallery/${b.user_bike_Id}`)
+        BicycleApiService.postBike(bike)
+            .then(newBike =>
+               this.props.history.push(`/gallery/${newBike.user_bike_id}`)
             )
             .catch(this.context.setError)
     }
 
-    handleUpdateBicycle = (event) => {
-        event.preventDefault()
-        const {bikeId} = this.props.match.params
-        const note = {
-            mfr_bike_id: event.target.mfr_bike_id.value,
-            nick_name: event.target.nick_name.value,
-            geo_id: event.target.geo_id.value
-        }
+    // handleUpdateBicycle = (event) => {
+    //     event.preventDefault()
+    //     const {bikeId} = this.props.match.params
+    //     const note = {
+    //         mfr_bike_id: event.target.mfr_bike_id.value,
+    //         nick_name: event.target.nick_name.value,
+    //         geo_id: event.target.geo_id.value
+    //     }
+    //
+    //     BicycleApiService.patchNote(bikeId, note)
+    //         .then(() =>
+    //             this.props.history.push(`/gallery/${bikeId}`)
+    //         )
+    //         .catch(this.context.setError)
+    // }
 
-        BicycleApiService.patchNote(bikeId, note)
-            .then(() =>
-                this.props.history.push(`/gallery/${bikeId}`)
-            )
-            .catch(this.context.setError)
+    handleMakeSelect = (e) => {
+        this.setState(
+            {
+                modelOptions: this.state.model.filter(model =>
+                    model[1].parent === e.target.value
+                )
+            })
     }
 
-    handleMakeSelect=(e)=>{
-        this.setState({model: this.state.model.filter(model => model[1].parent === e.target.value)})
+    handleModelSelect = (e) => {
+        this.setState(
+            {
+                yearOptions: this.state.year.filter(year =>
+                    year[1].parent === e.target.value
+                )
+            })
     }
 
-    handleModelSelect=(e)=>{
-        this.setState({year: this.state.year.filter(year => year[1].parent === e.target.value)})
-    }
-
-    handleYearSelect=(e)=>{
-        //console.log(e.target.value)
-        const size = this.state.size.filter(size => size.mfr_bike_id == e.target.value)[0].sizes
-        this.setState({size: this.state.size.filter(size => size.mfr_bike_id == e.target.value)[0].sizes})
-        console.log(size)
-    }
-    handleSizeSelect=(e)=>{
-        console.log(e.target.value)
+    handleYearSelect = (e) => {
+        this.setState(
+            {
+                sizeOptions: this.state.size.filter(size =>
+                    size.mfr_bike_id == e.target.value
+                )[0].sizes
+            })
     }
 
     handleCancel = () => {
-        //const {bikeId} = this.props.match.params
         this.props.history.push(`/gallery`)
     }
 
@@ -109,6 +123,10 @@ export default class AddEditBicycle extends Component {
         }
         const formValues = {
             'handleSubmit': this.handleAddBicycle,
+            'makeOption': 'DEFAULT',
+            'modelOption': 'DEFAULT',
+            'yearOption': 'DEFAULT',
+            'sizeOption': 'DEFAULT',
             'title': 'Add Bicycle',
             'mfr_bike_id': null,
             'nick_name': null,
@@ -116,9 +134,9 @@ export default class AddEditBicycle extends Component {
         }
 
         if (editBicycle) {
+            formValues.title = 'Edit Bicycle'
             formValues.handleSubmit = this.handleUpdateBicycle
             // formValues.note_id = editNote.note_id
-            formValues.title = 'Edit Bicycle'
             // formValues.note_type = editNote.note_type
             // formValues.note = editNote.note
         }
@@ -126,40 +144,47 @@ export default class AddEditBicycle extends Component {
     }
 
     render() {
-        const {handleSubmit, title, mfr_bike_id, nick_name, geo_id} = this.setFormValues()
+        const { handleSubmit, title, mfr_bike_id,
+                nick_name, geo_id, makeOption,
+                modelOption, yearOption, sizeOption} = this.setFormValues()
         return (
             <div className='add-note'>
                 <h2>{title}</h2>
                 <form onSubmit={handleSubmit}>
                     <label htmlFor='make'>Make</label>
-                    <select className='Select' name='make' type='select'>
-                        <option disabled selected value> -- select an option -- </option>
+                    <select className='Select' name='make' type='select' defaultValue={makeOption}>
+                        <option value="DEFAULT" disabled>Choose a manufacturer ...</option>
                         {this.state.make.map(make =>
                             <option onClick={this.handleMakeSelect}
-                                    key={make[1].mfr_bike_id}>{make[1].child}</option>
+                                    key={make[1].mfr_bike_id}>{make[1].child}
+                            </option>
                         )}
                     </select>
                     <label htmlFor='model'>Model</label>
-                    <select className='Select' name='model' type='select'>
-                        <option disabled selected value> -- select an option -- </option>
-                        {this.state.model.map(model =>
+                    <select className='Select' name='model' type='select' defaultValue={modelOption}>
+                        <option value="DEFAULT" disabled>Choose a model ...</option>
+                        {this.state.modelOptions.map(model =>
                             <option onClick={this.handleModelSelect}
-                                    key={model[1].mfr_bike_id}>{model[1].child}</option>
+                                    key={model[1].mfr_bike_id}>{model[1].child}
+                            </option>
                         )}
                     </select>
                     <label htmlFor='year'>Year</label>
-                    <select className='Select' name='year' type='select'>
-                        <option disabled selected value> -- select an option -- </option>
-                        {this.state.year.map(year =>
+                    <select className='Select' name='year' type='select' defaultValue={yearOption}>
+                        <option value="DEFAULT" disabled>Choose a year ...</option>
+                        {this.state.yearOptions.map(year =>
                             <option onClick={this.handleYearSelect}
-                                    key={year[1].mfr_bike_id} value={year[1].mfr_bike_id}>{year[1].child}</option>
+                                    key={year[1].mfr_bike_id} value={year[1].mfr_bike_id}>{year[1].child}
+                            </option>
                         )}
                     </select>
                     <label htmlFor='size'>Size</label>
-                    <select onClick={this.handleSizeSelect} className='Select' name='size' type='select'>
-                        <option disabled selected value> -- select an option -- </option>
-                        {this.state.size.map(size =>
-                            <option key={Math.random()} value={size.geo_id}>{size.size}</option>
+                    <select className='Select' name='size' type='select' defaultValue={sizeOption}>
+                        <option value="DEFAULT" disabled>Choose a size ...</option>
+                        {this.state.sizeOptions.map(size =>
+                            <option key={size.geo_id}
+                                    value={size.geo_id}>{size.size}
+                            </option>
                         )}
                     </select>
                     <label htmlFor='nick_name'>Nickname</label>
