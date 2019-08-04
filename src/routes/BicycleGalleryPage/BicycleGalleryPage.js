@@ -29,8 +29,8 @@ export default class BicycleGalleryPage extends Component {
 
     renderBicycleGallery() {
         const {userBikeList} = this.context
-
         const bicycles = userBikeList.bicycles
+
         if (bicycles) {
             return (
                 <Fragment>
@@ -47,17 +47,23 @@ export default class BicycleGalleryPage extends Component {
                         />)}
                 </Fragment>
             )
+        } else {
+            return  (
+                <Link to={`/gallery/newbike`} className='BikeCollection'>
+                    <button className='Button'>Add Bicycle</button>
+                </Link>
+            )
         }
     }
 
     render() {
         const {error} = this.context
         return (
-                <Section list className='BikeCollectionPage'>
-                    {error
-                        ? <p className='red'>There was an error. Are you logged in?</p>
-                        : this.renderBicycleGallery()}
-                </Section>
+            <Section list className='BikeCollectionPage'>
+                {error
+                    ? <p className='red'>{'There was an error. Are you logged in?'}</p>
+                    : this.renderBicycleGallery()}
+            </Section>
         )
     }
 }

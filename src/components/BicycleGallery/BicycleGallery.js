@@ -7,9 +7,6 @@ export default class BicycleGallery extends Component {
   render() {
     const { bike } = this.props
 
-      const bike_logo_image = `../../images/${bike.make.toLowerCase()}.png`
-      console.log(bike_logo_image)
-
     return (
       <Link to={`/gallery/${bike.user_bike_id}`} className='BikeCollection'>
        <div className='BikeCollection__details_top' >

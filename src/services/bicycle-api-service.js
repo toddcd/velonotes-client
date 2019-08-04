@@ -32,10 +32,38 @@ const BicycleApiService = {
                 "authorization": `bearer ${TokenService.getAuthToken()}`,
             },
         })
-            .then(res =>
-                (!res.ok)
-                    ? res.json().then(e => Promise.reject(e))
-                    : res.json()
+            .then(res => {
+                    if (!res.ok) {
+                        throw Error(res.statusText);
+                        res.json().then(e => Promise.reject(e)).then(
+                        )
+                    } else if (res.status === 204) {
+                        const nodata = {info: 'No bikes for current user'}
+                        console.log(nodata)
+                        return nodata
+                    } else
+                        return res.json()
+                }
+            )
+    },
+    getGridBikes() {
+        return fetch(`${config.API_ENDPOINT}/bicycles/grid`, {
+            headers: {
+                "authorization": `bearer ${TokenService.getAuthToken()}`,
+            },
+        })
+            .then(res => {
+                    if (!res.ok) {
+                        throw Error(res.statusText);
+                        res.json().then(e => Promise.reject(e)).then(
+                        )
+                    } else if (res.status === 204) {
+                        const nodata = {info: 'No bikes for current user'}
+                        console.log(nodata)
+                        return nodata
+                    } else
+                        return res.json()
+                }
             )
     },
     getBike(bikeId) {
@@ -65,19 +93,19 @@ const BicycleApiService = {
                     : res.json()
             )
     },
-    deleteBike(bikeId) {
-        return fetch(`${config.API_ENDPOINT}/bicycle/${bikeId}`, {
-            method: 'DELETE',
-            headers: {
-                "authorization": `bearer ${TokenService.getAuthToken()}`,
-            },
-        })
-            .then(res => {
-                if (!res.ok) {
-                    res.json().then(e => Promise.reject(e))
-                }
-            })
-    },
+    // deleteBike(bikeId) {
+    //     return fetch(`${config.API_ENDPOINT}/bicycle/${bikeId}`, {
+    //         method: 'DELETE',
+    //         headers: {
+    //             "authorization": `bearer ${TokenService.getAuthToken()}`,
+    //         },
+    //     })
+    //         .then(res => {
+    //             if (!res.ok) {
+    //                 res.json().then(e => Promise.reject(e))
+    //             }
+    //         })
+    // },
     postPosition(position) {
         return fetch(`${config.API_ENDPOINT}/positions`, {
             method: "POST",
@@ -93,7 +121,7 @@ const BicycleApiService = {
                     : res.json()
             )
     },
-    patchPosition(position){
+    patchPosition(position) {
         return fetch(`${config.API_ENDPOINT}/positions/${position.position_id}`, {
             method: 'PATCH',
             headers: {
@@ -153,7 +181,7 @@ const BicycleApiService = {
                     : res.json()
             )
     },
-    patchNote(bikeId, note){
+    patchNote(bikeId, note) {
         return fetch(`${config.API_ENDPOINT}/notes/${note.note_id}`, {
             method: 'PATCH',
             headers: {

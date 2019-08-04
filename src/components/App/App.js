@@ -41,6 +41,7 @@ class App extends Component {
                             component={LoginPage}
                         />
                         <Route
+                            exact
                             path={'/register'}
                             component={RegistrationPage}
                         />
@@ -57,6 +58,7 @@ class App extends Component {
                                 )}
                         />
                         <Route
+                            exact
                             path={'/grid'}
                             component={BicycleGridPage}
                         />

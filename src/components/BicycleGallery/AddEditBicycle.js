@@ -54,34 +54,29 @@ export default class AddEditBicycle extends Component {
 
     handleAddBicycle = (event) => {
         event.preventDefault()
+        const make = this.state.make.find(make => {
+            return make[1].mfr_bike_id === parseInt(event.target.year.value)
+        })
+
+        let nickName = ''
+        if (!event.target.nick_name.value) {
+            nickName = make[1].parent
+        } else {
+            nickName = event.target.nick_name.value
+        }
+
         const bike = {
             mfr_bike_id: parseFloat(event.target.year.value),
-            nick_name: event.target.nick_name.value,
+            nick_name: nickName,
             geo_id: parseFloat(event.target.size.value),
         }
 
         BicycleApiService.postBike(bike)
             .then(newBike =>
-               this.props.history.push(`/gallery/${newBike.user_bike_id}`)
+                this.props.history.push(`/gallery/${newBike.user_bike_id}`)
             )
             .catch(this.context.setError)
     }
-
-    // handleUpdateBicycle = (event) => {
-    //     event.preventDefault()
-    //     const {bikeId} = this.props.match.params
-    //     const note = {
-    //         mfr_bike_id: event.target.mfr_bike_id.value,
-    //         nick_name: event.target.nick_name.value,
-    //         geo_id: event.target.geo_id.value
-    //     }
-    //
-    //     BicycleApiService.patchNote(bikeId, note)
-    //         .then(() =>
-    //             this.props.history.push(`/gallery/${bikeId}`)
-    //         )
-    //         .catch(this.context.setError)
-    // }
 
     handleMakeSelect = (e) => {
         this.setState(
@@ -144,9 +139,11 @@ export default class AddEditBicycle extends Component {
     }
 
     render() {
-        const { handleSubmit, title, mfr_bike_id,
-                nick_name, geo_id, makeOption,
-                modelOption, yearOption, sizeOption} = this.setFormValues()
+        const {
+            handleSubmit, title, mfr_bike_id,
+            nick_name, geo_id, makeOption,
+            modelOption, yearOption, sizeOption
+        } = this.setFormValues()
         return (
             <div className='add-note'>
                 <h2>{title}</h2>
