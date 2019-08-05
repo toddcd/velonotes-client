@@ -3,15 +3,82 @@
     padding: 5px;
 }
 
+.add-position-container {
+    text-align: start;
+}
+
+.position-event-button {
+    background-color: #9ba59d;
+    font-size: 1.1em;
+    min-width: 75px;
+    padding: 5px;
+    margin: 5px;
+    font-weight: bold;
+    box-shadow: none;
+    border-radius: 3px;
+    border: 0;
+    color: #dae8dd;
+    cursor: pointer;
+}
+
+.position-title{
+    text-align: center;
+}
+
+.position-button-div {
+    text-align: center;
+}
+
+.position-detail {
+    background-color: #ffffff;
+}
+
 .position-container {
-    padding: 2px;
+    padding: 1px;
+    background-color: #ffffff;
+}
+
+.ego-btn {
+    display: flex;
+    background-color: #9ba59d;
+    box-shadow: none;
+    border-radius: 3px;
+    border: 0;
+}
+.div-spacer{
+    flex: 1;
+    align-self: center;
+    justify-self: flex-start;
+}
+.div-font-awesome-chevron {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.font-awesome-chevron{
+    flex: 1;
+    align-self: center;
+    color: #dae8dd;
+}
+.btn-content {
+    display: flex;
+    flex: 1;
+    align-self: center;
 }
 
 .position {
     display: flex;
-
+    text-align: start;
+    padding: 5px;
+    font-size: 14px;
+}
+.left {
+    flex: 1;
 }
 
+.right {
+    flex: 1;
+}
 .position-component-setup {
     display: flex;
     flex-direction: row;
@@ -22,7 +89,8 @@
 .Textarea {
     border: 1px solid #ddd;
     display: block;
-    font-size: 1.1em;
+    font-size: 1em;
+    max-height: 35px;
     margin-bottom: 10px;
     padding: 10px;
     text-align: left;
@@ -47,7 +115,6 @@
     height: 30px;
 }
 
-
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -56,6 +123,78 @@ input[type="number"]::-webkit-inner-spin-button {
 input[type="number"] {
     -moz-appearance: textfield;
 }
+
+/*-------------------------------------------*/
+/*switch begin*/
+/*-------------------------------------------*/
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 36px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ffffff;
+    border:1px solid #7f8c8d;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: #a9a9a9;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #779d8f;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #a9a9a9;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+    border: 1px solid #dae8dd;
+}
+/*-------------------------------------------*/
+/*switch end*/
+/*-------------------------------------------*/
+
 
 
 

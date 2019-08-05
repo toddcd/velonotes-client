@@ -9,10 +9,16 @@
 
 .Button {
   background-color: #9ba59d;
-  color: #dae8dd;
   font-size: 1.1em;
-  border-radius: 4px;
-  padding: 8px 12px;
+  min-width: 75px;
+  padding: 5px;
+  margin: 5px;
   font-weight: bold;
+  box-shadow: none;
+  border-radius: 3px;
+  border: 0;
+  color: #dae8dd;
+  cursor: pointer;
 }
+
 

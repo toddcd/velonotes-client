@@ -6,6 +6,9 @@ export default class BicycleGallery extends Component {
 
     render() {
         const {bike} = this.props
+        const date = new Date(bike.date_created)
+        const created = (date.getFullYear()+'-'+date.getMonth()+'-'+date.getDay())
+
         return (
             <Link to={`/gallery/${bike.user_bike_id}`} className='BikeCollection'>
                 <div className='BikeCollection__details_top'>
@@ -19,7 +22,7 @@ export default class BicycleGallery extends Component {
                             <div>
                                 {bike.make}<br/>
                                 {bike.model}<br/>
-                                {bike.date_created}<br/>
+                                {created}<br/>
                             </div>
                         </div>
                     </div>

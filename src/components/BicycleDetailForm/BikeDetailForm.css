@@ -1,32 +1,59 @@
-section {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    justify-content: center;
+.addnote-button, .addpos-button {
+    margin: 0;
+    color: #ffffff;
+    background: transparent;
+    border-style: solid;
+    border-color: transparent;
+    text-decoration: none;
+    cursor: pointer;
 }
 
+.geometry-data {
+    display: flex;
+    margin-bottom: 1px;
+    border-radius: 3px;
+    text-align: start;
+    padding: 5px;
+    font-size: 14px;
+}
+.geo-left {
+    flex: 1;
+}
+
+.geo-right {
+    flex: 1;
+}
+
+.geo-alpha{
+    font-weight: bold;
+    color: #779d8f;
+}
+
+.geometry-image {
+    border-radius: 3px;
+    margin-top: 5px;
+}
+
+.button-right {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    background-color: #779d8f;
+    border-radius: 3px;
+}
 
 .detail-section {
     display: flex;
     flex-direction: row;
     padding: 10px 0 10px 0;
-    border-top: solid 1px crimson;
-    border-bottom: solid 1px crimson;
+
 }
 
-.position-section {
+.position-section, notes-section {
     display: flex;
     flex-direction: column;
-    padding: 10px 0 10px 0;
-    border-top: solid 1px crimson;
-    border-bottom: solid 1px crimson;
-}
+    padding: 5px 0 5px 0;
 
-.note-section {
-    display: flex;
-    flex-direction: column;
-    padding: 10px 0 10px 0;
-    border-bottom: solid 1px crimson;
 }
 
 .left {

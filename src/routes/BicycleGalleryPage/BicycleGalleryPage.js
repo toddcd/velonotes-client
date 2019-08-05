@@ -34,21 +34,25 @@ export default class BicycleGalleryPage extends Component {
         if (bicycles) {
             return (
                 <Fragment>
-                    <Link to={`/gallery/newbike`} className='gallery_new_bike'>
-                        <button className='Button'>Add Bicycle</button>
-                    </Link>
-                    <Link to={`/grid`} className='gallery_grid_view'>
-                        <button className='Button'>Grid View</button>
-                    </Link>
+                    <div >
+                        <Link to={`/gallery/newbike`} className='gallery_new_bike'>
+                            <button className='Button'>Add Bicycle</button>
+                        </Link>
+                        <Link to={`/grid`} className='gallery_grid_view'>
+                            <button className='Button'>Grid View</button>
+                        </Link>
+                    </div>
+                    <div className='BikeCollectionPage'>
                     {bicycles.map(bike =>
                         <BicycleGallery
                             key={bike.user_bike_id}
                             bike={bike}
                         />)}
+                    </div>
                 </Fragment>
             )
         } else {
-            return  (
+            return (
                 <Link to={`/gallery/newbike`} className='gallery_new_bike'>
                     <button className='Button'>Add Bicycle</button>
                 </Link>
@@ -59,7 +63,7 @@ export default class BicycleGalleryPage extends Component {
     render() {
         const {error} = this.context
         return (
-            <Section list className='BikeCollectionPage'>
+            <Section >
                 {error
                     ? <p className='red'>{'There was an error. Are you logged in?'}</p>
                     : this.renderBicycleGallery()}

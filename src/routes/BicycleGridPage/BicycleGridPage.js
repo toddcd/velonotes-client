@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom'
 import BicycleGrid from '../../components/BicycleGrid/BicycleGrid'
 import BicycleApiService from "../../services/bicycle-api-service";
 import BicyclesContext from "../../context/BicyclesContext";
-import BicycleGallery from "../../components/BicycleGallery/BicycleGallery";
 import {Section} from "../../components/Utils/Utils";
+import './GridViewPage.css'
 
 //import './BicycleGridPage.css'
 
@@ -73,10 +73,10 @@ export default class BicycleGridPage extends Component {
 
         return (
             <Fragment>
-                <Link to={`/gallery`} className='BikeCollection'>
-                    <button>Gallery View</button>
+                <Link to={`/gallery`} className='grid-view-button-link'>
+                    <button className='grid-view-button'>Gallery View</button>
                 </Link>
-                <BicycleGrid rowData={rowData} className='CollectionGridPage' />
+                <BicycleGrid rowData={rowData} className='bike-grid' />
             </Fragment>
         )
     }
@@ -84,7 +84,7 @@ export default class BicycleGridPage extends Component {
     render() {
         const {error} = this.context
         return (
-            <Section list className='BikeCollectionPage'>
+            <Section list className='BikeGridPage'>
                 {error
                     ? <p className='red'>{'There was an error. Are you logged in?'}</p>
                     : this.renderBicycleGallery()}

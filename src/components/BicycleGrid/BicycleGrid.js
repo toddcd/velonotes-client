@@ -59,7 +59,7 @@ class BicycleGrid extends Component {
 
     render() {
         return (
-            <section className='bla'>
+            <section className='grid-section'>
                 <div
                     className="ag-theme-balham grid-view">
                     <AgGridReact

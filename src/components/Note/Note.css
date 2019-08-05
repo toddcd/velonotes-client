@@ -1,36 +1,44 @@
-.Position__li {
-    width: 90%;
-    padding: 5px;
-}
-
-.note-text {
-    width: 50%;
-}
-
-.add-note > form {
-    display: flex;
-    flex-direction: column;
-    align-self: center;
-    padding: 10px;
-    width: 80%;
-}
-
 .note-container {
-    padding: 3px;
+    padding: 1px;
+    background-color: #ffffff;
 }
 
-.Button {
-    /*order: 1px solid #aaa;*/
-    background-color: #eee;
-    font-size: 1.1em;
-    border-radius: 4px;
-    padding: 8px 12px;
-    font-weight: bold;
+.btn {
+    display: flex;
+    background-color: #9ba59d;
+    box-shadow: none;
+    border-radius: 3px;
+    border: 0;
+    color: #ffffff;
+}
+.div-spacer{
+    flex: 1;
+    align-self: center;
+    justify-self: flex-start;
+}
+.div-font-awesome-chevron {
+    display: flex;
+    justify-content: flex-end;
 }
 
-.Input,
-.Select,
-.Textarea {
+.font-awesome-chevron{
+    flex: 1;
+    align-self: center;
+    color: #dae8dd;
+}
+.btn-content {
+    display: flex;
+    flex: 1;
+    align-self: center;
+}
+
+.note-detail {
+    background-color: #ffffff;
+}
+
+.new-note-textarea,
+.new-note-select {
+    flex: 1;
     border: 1px solid #ddd;
     display: block;
     font-size: 1.1em;
@@ -40,13 +48,24 @@
     width: 100%;
     border-radius: 4px;
 }
-.Textarea {
+
+.new-note-textarea {
     resize: vertical;
     width: 96%;
 }
 .note-content{
-    border: 1px solid lightcoral;
+    text-align: start;
+    padding: 0 10px 5px 10px;
+    background-color: #ffffff;
     border-radius: 3px;
+}
+
+.new-note-form {
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    padding: 30px;
+    text-align: start;
 }
 
 .delete-edit-button {

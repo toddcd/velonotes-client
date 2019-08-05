@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, {Component, Fragment} from 'react'
 import BikeContext from "../../context/BikeContext";
 import BicycleApiService from "../../services/bicycle-api-service";
 import './Note.css'
@@ -70,21 +70,21 @@ export default class AddEditNote extends Component {
     render() {
         const {handleSubmit, note_id, title, note_type, note} = this.setFormValues()
         return (
-            <div className='add-note'>
+            <Fragment>
                 <h2>{title}</h2>
-                <form data-note_id={note_id} onSubmit={handleSubmit}>
+                <form className='new-note-form' data-note_id={note_id} onSubmit={handleSubmit}>
                     <label htmlFor='type'>Type</label>
-                    <select className='Select' name='type' type='select' defaultValue={note_type}>
+                    <select className='new-note-select' name='type' type='select' defaultValue={note_type}>
                         <option value="maintenance">Maintenance</option>
                         <option value="setup">Setup</option>
                         <option value="general">General</option>
                     </select>
                     <label htmlFor='type'>Note</label>
-                    <textarea className='Textarea' name='note' rows='5' defaultValue={note}/>
+                    <textarea className='new-note-textarea' name='note' rows='5' defaultValue={note}/>
                     <button className='Button' type='submit'>Save</button>
                     <button className='Button' onClick={this.handleCancel} type='reset'>Cancel</button>
                 </form>
-            </div>
+            </Fragment>
         )
     }
 }

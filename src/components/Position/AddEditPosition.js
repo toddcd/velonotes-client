@@ -132,16 +132,25 @@ export default class AddEditPosition extends Component {
             handlebar_reach, handlebar_drop, setback
         } = this.setFormValues()
         return (
-            <div className='add-note'>
-                <h2>{page_title}</h2>
+            <div className='add-position-container'>
                 <form data-position_id={position_id} onSubmit={handleSubmit}>
+                    <h2 className='position-title'>{page_title}</h2>
                     <Section className='position-detail-section'>
                         <label htmlFor='name'>Name</label>
                         <input className='Input' type='text' name='name' defaultValue={name}/>
                         <label htmlFor='description'>Description</label>
                         <input className='Input' type='text' name='description' defaultValue={description}/>
-                        <label htmlFor='active'>Active</label>
-                        <input className='Input' type='checkbox' name='active' defaultValue={active}/>
+                        <div className="switch-row">
+                            <div className="switch-row-div1">
+                                <label htmlFor='active'>Active</label>
+                            </div>
+                            <div className="switch-row-div2">
+                                <label className="switch">
+                                    <input id="active" type="checkbox" name="active" defaultValue={active} />
+                                        <span className="slider round"/>
+                                </label>
+                            </div>
+                        </div>
                     </Section>
                     <div className='position-component-setup'>
                         <Section className='position-component-section'>
@@ -174,8 +183,8 @@ export default class AddEditPosition extends Component {
                         </Section>
                     </div>
                     <div className='position-button-div'>
-                        <button className='Button' type='submit'>Save</button>
-                        <button className='Button' onClick={this.handleCancel} type='reset'>Cancel</button>
+                        <button className='position-event-button' type='submit'>Save</button>
+                        <button className='position-event-button' onClick={this.handleCancel} type='reset'>Cancel</button>
                     </div>
                 </form>
             </div>

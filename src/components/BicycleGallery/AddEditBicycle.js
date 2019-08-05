@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, {Component, Fragment} from 'react'
 import BicyclesContext from "../../context/BicyclesContext";
 import BicycleApiService from "../../services/bicycle-api-service";
 import './BicycleGallery.css'
@@ -145,11 +145,12 @@ export default class AddEditBicycle extends Component {
             modelOption, yearOption, sizeOption
         } = this.setFormValues()
         return (
-            <div className='add-note'>
+
+            <Fragment>
                 <h2>{title}</h2>
-                <form onSubmit={handleSubmit}>
+                <form className='new-bike-form' onSubmit={handleSubmit}>
                     <label htmlFor='make'>Make</label>
-                    <select className='Select' name='make' type='select' defaultValue={makeOption}>
+                    <select className='new-bike-select' name='make' type='select' defaultValue={makeOption}>
                         <option value="DEFAULT" disabled>Choose a manufacturer ...</option>
                         {this.state.make.map(make =>
                             <option onClick={this.handleMakeSelect}
@@ -158,7 +159,7 @@ export default class AddEditBicycle extends Component {
                         )}
                     </select>
                     <label htmlFor='model'>Model</label>
-                    <select className='Select' name='model' type='select' defaultValue={modelOption}>
+                    <select className='new-bike-select' name='model' type='select' defaultValue={modelOption}>
                         <option value="DEFAULT" disabled>Choose a model ...</option>
                         {this.state.modelOptions.map(model =>
                             <option onClick={this.handleModelSelect}
@@ -167,7 +168,7 @@ export default class AddEditBicycle extends Component {
                         )}
                     </select>
                     <label htmlFor='year'>Year</label>
-                    <select className='Select' name='year' type='select' defaultValue={yearOption}>
+                    <select className='new-bike-select' name='year' type='select' defaultValue={yearOption}>
                         <option value="DEFAULT" disabled>Choose a year ...</option>
                         {this.state.yearOptions.map(year =>
                             <option onClick={this.handleYearSelect}
@@ -176,7 +177,7 @@ export default class AddEditBicycle extends Component {
                         )}
                     </select>
                     <label htmlFor='size'>Size</label>
-                    <select className='Select' name='size' type='select' defaultValue={sizeOption}>
+                    <select className='new-bike-select' name='size' type='select' defaultValue={sizeOption}>
                         <option value="DEFAULT" disabled>Choose a size ...</option>
                         {this.state.sizeOptions.map(size =>
                             <option key={size.geo_id}
@@ -184,14 +185,16 @@ export default class AddEditBicycle extends Component {
                             </option>
                         )}
                     </select>
+                    <div>
                     <label htmlFor='nick_name'>Nickname</label>
                     <Input className='Input' name='nick_name' defaultValue={nick_name}/>
-                    <div>
+                    <div className='new-bike-event-buttons'>
                         <button className='Button' type='submit'>Save</button>
                         <button className='Button' onClick={this.handleCancel} type='reset'>Cancel</button>
                     </div>
+                    </div>
                 </form>
-            </div>
+            </Fragment>
         )
     }
 }

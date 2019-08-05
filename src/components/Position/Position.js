@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 //import {Button, Input, Section} from '../Utils/Utils'
 import './Position.css'
 import {Link} from "react-router-dom";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 export default class Position extends Component {
     constructor() {
@@ -32,10 +33,15 @@ export default class Position extends Component {
         return (
             <div className="position-container">
                 <button className="btn btn-block" onClick={ this.toggle }>
-                    position
+                    <div className='btn-content'>
+                    {this.props.position.name}
+                    </div>
+                    <div className='div-font-awesome-chevron'>
+                        {this.state.open ? <FontAwesomeIcon icon="chevron-up" className='font-awesome-chevron'/>
+                            : <FontAwesomeIcon icon="chevron-down" className='font-awesome-chevron'/>}
+                    </div>
                 </button>
-                <div id="position-details" className={"collapse" + (this.state.open ? ' in' : '')}>
-
+                <div id="position-details" className={"position-detail collapse" + (this.state.open ? ' in' : '')}>
                     <Link to={{
                         pathname:`/gallery/${bike.user_bike_id}/editposition`,
                         state:{
@@ -50,7 +56,6 @@ export default class Position extends Component {
                             <p>
                                 Name: {position.name}<br/>
                                 Desc: {position.description}<br/><br/>
-
                                 Crank Length: {position.crank}<br/>
                                 Stem Length/Angle: {position.stem}/{position.stem_angle}<br/>
                                 Handlebar Width: {position.handlebar}<br/>

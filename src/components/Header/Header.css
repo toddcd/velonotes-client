@@ -3,15 +3,16 @@
   display: flex;
   align-items: normal;
   justify-content: space-between;
-  background-color:  #779d8f
+  background-color:  #779d8f;
 }
 
 .Header h1 {
-  margin: 0;
+  align-self: center;
+  margin: 5px;
 }
 
 .Header a {
-  color: #444;
+  color: #ffffff;
   text-decoration: none;
 }
 
@@ -31,6 +32,7 @@
 .Header__not-logged-in {
   display: flex;
   flex: 1;
+  margin: 3px;
   align-items: center;
   justify-content: flex-end;
 }
@@ -43,10 +45,27 @@
   margin-left: 10px;
 }
 
+.Header__logged-in-container {
+  display: flex;
+  flex-direction: row;
+  margin: 15px 0 0 0 ;
+}
+
+.Header__logged-out-container {
+  display: flex;
+  flex-direction: row;
+  margin: 8px 0 0 0 ;
+}
+
 .Header__logged-in a {
-  border: 1px solid rgba(0, 0, 0, 0.25);
+  flex: 1;
+  align-self: center;
+  border: 1px solid #7f8c8d;
   padding: 5px 15px;
+  margin: 2px 5px 0 0;
   border-radius: 15px;
+  background-color:#ffffff ;
+  color: #779d8f;
 }
 
 @media screen and (min-width: 450px) {
