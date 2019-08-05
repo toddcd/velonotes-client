@@ -35,8 +35,7 @@ const BicycleApiService = {
             .then(res => {
                     if (!res.ok) {
                         throw Error(res.statusText);
-                        res.json().then(e => Promise.reject(e)).then(
-                        )
+                        //res.json().then(e => Promise.reject(e)).then()
                     } else if (res.status === 204) {
                         const nodata = {info: 'No bikes for current user'}
                         console.log(nodata)
@@ -55,8 +54,7 @@ const BicycleApiService = {
             .then(res => {
                     if (!res.ok) {
                         throw Error(res.statusText);
-                        res.json().then(e => Promise.reject(e)).then(
-                        )
+                        //res.json().then(e => Promise.reject(e)).then()
                     } else if (res.status === 204) {
                         const nodata = {info: 'No bikes for current user'}
                         console.log(nodata)

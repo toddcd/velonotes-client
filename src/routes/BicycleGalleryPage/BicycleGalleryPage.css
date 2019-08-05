@@ -7,3 +7,12 @@
   padding: 20px 0 10px 0;
 }
 
+.Button {
+  background-color: #9ba59d;
+  color: #dae8dd;
+  font-size: 1.1em;
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-weight: bold;
+}
+

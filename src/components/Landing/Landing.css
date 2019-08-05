@@ -1,0 +1,18 @@
+.background-image-top {
+    background-image: url("../../images/landing600x267top.png") ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+}
+.background-image-mid {
+    background-image: url("../../images/landing600x267mid.png") ;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.background-image-bottom {
+    background-image: url("../../images/landing600x267bottom.png") ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+}
+

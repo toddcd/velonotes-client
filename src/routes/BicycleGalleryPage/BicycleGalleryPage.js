@@ -34,10 +34,10 @@ export default class BicycleGalleryPage extends Component {
         if (bicycles) {
             return (
                 <Fragment>
-                    <Link to={`/gallery/newbike`} className='BikeCollection'>
+                    <Link to={`/gallery/newbike`} className='gallery_new_bike'>
                         <button className='Button'>Add Bicycle</button>
                     </Link>
-                    <Link to={`/grid`} className='BikeCollection'>
+                    <Link to={`/grid`} className='gallery_grid_view'>
                         <button className='Button'>Grid View</button>
                     </Link>
                     {bicycles.map(bike =>
@@ -49,7 +49,7 @@ export default class BicycleGalleryPage extends Component {
             )
         } else {
             return  (
-                <Link to={`/gallery/newbike`} className='BikeCollection'>
+                <Link to={`/gallery/newbike`} className='gallery_new_bike'>
                     <button className='Button'>Add Bicycle</button>
                 </Link>
             )

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import LoginForm from '../../components/LoginForm/LoginForm'
 import { Section } from '../../components/Utils/Utils'
+import BicyclesContext from "../../context/BicyclesContext";
 
 export default class LoginPage extends Component {
   static defaultProps = {
@@ -10,8 +11,11 @@ export default class LoginPage extends Component {
     },
   }
 
+  static contextType = BicyclesContext
+
   handleLoginSuccess = () => {
     const { history } = this.props
+    this.context.setLoggedIn(true)
     history.push('/')
   }
 

@@ -22,11 +22,10 @@ class App extends Component {
     }
 
     render(){
-
         return (
-            <div className="App">
+            <div className="App background-color main-container">
                 <header className='App__header'>
-                    <Header/>
+                    <Header />
                 </header>
                 <main>
                     <Switch>
@@ -100,7 +99,7 @@ class App extends Component {
                         />
                     </Switch>
                 </main>
-                <footer role="contentinfo">TD3 Studios</footer>
+                <footer role="contentinfo" className='footer'>TD3 Studios</footer>
             </div>
         );
     }

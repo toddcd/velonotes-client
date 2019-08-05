@@ -53,52 +53,9 @@ input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
-
 input[type="number"] {
     -moz-appearance: textfield;
 }
 
-/*input[type=number]::-webkit-inner-spin-button,*/
-/*input[type=number]::-webkit-outer-spin-button {*/
-/*    -webkit-appearance: none;*/
-/*    -moz-appearance: none;*/
-/*    appearance: none;*/
-/*    margin: 0;*/
-/*}*/
 
-div, span {
-    font-family: "Times New Roman";
-    font-size: 16px;
-    position: relative;
-}
-
-.price {
-    font-size: 34px;
-}
-
-.vcenter {
-    display: inline-block;
-    float: none;
-    horiz-align: right !important;
-}
-
-.border {
-    border: solid 0.5px;
-}
-
-.leftmargin {
-    margin-left: 10px;
-}
-
-.grey {
-    background-color: darkgray;
-}
-
-.collapse {
-    display: none
-}
-
-.collapse.in {
-    display: block
-}
 
