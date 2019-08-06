@@ -35,6 +35,9 @@ export default class BicycleGalleryPage extends Component {
             return (
                 <Fragment>
                     <div >
+                        <Link to={`/gallery/poc`} className='gallery_new_bike'>
+                            <button className='Button'>POC</button>
+                        </Link>
                         <Link to={`/gallery/newbike`} className='gallery_new_bike'>
                             <button className='Button'>Add Bicycle</button>
                         </Link>

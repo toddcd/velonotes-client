@@ -12,6 +12,7 @@ import BicycleGridPage from "../../routes/BicycleGridPage/BicycleGridPage";
 import AddEditNote from "../Note/AddEditNote";
 import AddEditPosition from "../Position/AddEditPosition";
 import AddEditBicycle from "../BicycleGallery/AddEditBicycle";
+import AddEditBicyclePOC from "../BicycleGallery/AddEditBicyclePOC";
 
 class App extends Component {
     state = { hasError: false }
@@ -54,6 +55,13 @@ class App extends Component {
                             path={'/gallery/newbike'}
                             render={(renderProps) =>
                                 (<AddEditBicycle {...renderProps} />
+                                )}
+                        />
+                        <Route
+                            exact
+                            path={'/gallery/poc'}
+                            render={(renderProps) =>
+                                (<AddEditBicyclePOC {...renderProps} />
                                 )}
                         />
                         <Route

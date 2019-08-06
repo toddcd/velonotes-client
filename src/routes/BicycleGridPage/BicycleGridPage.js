@@ -73,10 +73,10 @@ export default class BicycleGridPage extends Component {
 
         return (
             <Fragment>
-                <Link to={`/gallery`} className='grid-view-button-link'>
+                <Link to={`/gallery`} >
                     <button className='grid-view-button'>Gallery View</button>
                 </Link>
-                <BicycleGrid rowData={rowData} className='bike-grid' />
+                <BicycleGrid rowData={rowData}  />
             </Fragment>
         )
     }
@@ -84,7 +84,7 @@ export default class BicycleGridPage extends Component {
     render() {
         const {error} = this.context
         return (
-            <Section list className='BikeGridPage'>
+            <Section  >
                 {error
                     ? <p className='red'>{'There was an error. Are you logged in?'}</p>
                     : this.renderBicycleGallery()}

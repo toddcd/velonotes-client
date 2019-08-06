@@ -2,9 +2,10 @@ import React, {Component, Fragment} from 'react'
 import BicyclesContext from "../../context/BicyclesContext";
 import BicycleApiService from "../../services/bicycle-api-service";
 import './BicycleGallery.css'
+import './poc.css'
 import {Input} from "../Utils/Utils";
 
-export default class AddEditBicycle extends Component {
+export default class AddEditBicyclePOC extends Component {
     static contextType = BicyclesContext
     state = {
         make: [],
@@ -15,7 +16,6 @@ export default class AddEditBicycle extends Component {
         modelOptions: [],
         yearOptions: [],
         sizeOptions: [],
-
     };
 
     componentDidMount() {
@@ -58,16 +58,12 @@ export default class AddEditBicycle extends Component {
             return make[1].mfr_bike_id === parseInt(event.target.year.value)
         })
 
-        let nickName = ''
-        if (!event.target.nick_name.value) {
-            nickName = make[1].parent
-        } else {
-            nickName = event.target.nick_name.value
-        }
+        console.log('EVENT')
+        console.log(make)
 
         const bike = {
             mfr_bike_id: parseFloat(event.target.year.value),
-            nick_name: nickName,
+            nick_name: 'POC2',
             geo_id: parseFloat(event.target.size.value),
         }
 
@@ -89,6 +85,7 @@ export default class AddEditBicycle extends Component {
 
     handleModelSelect = (e) => {
         console.log('MAKE FIRED!!!')
+        console.log(e.target.value)
         this.setState(
             {
                 yearOptions: this.state.year.filter(year =>
@@ -139,63 +136,77 @@ export default class AddEditBicycle extends Component {
         return formValues
     }
 
-    render() {
-        const {
-            handleSubmit, title, mfr_bike_id,
-            nick_name, geo_id, makeOption,
-            modelOption, yearOption, sizeOption
-        } = this.setFormValues()
+    renderMake() {
         return (
+            <ul className='ul-items'>
+                {this.state.make.map(make =>
+                    <li className='list-item ui-make' key={make[1].mfr_bike_id}>
+                        <label className='list-item-label' htmlFor='make'>{make[1].child}</label>
+                        <input className='form-radio' type="radio" name="make" onClick={this.handleMakeSelect}
+                               value={make[1].parent}/>
+                    </li>
+                )}
+            </ul>
+        )
+    }
 
-            <Fragment>
-                <h2>{title}</h2>
-                <form id='new-bike-form' className='new-bike-form' onSubmit={handleSubmit}>
-                    <label htmlFor='make'>Make</label>
-                    <select className='new-bike-select' form='new-bike-form' name='make' type='select'>
-                        <option value="DEFAULT" disabled>Choose a manufacturer ...</option>
-                        {this.state.make.map(make =>
-                            <option onClick={this.handleMakeSelect}
-                                    key={make[1].mfr_bike_id}>{make[1].child}
-                            </option>
-                        )}
-                    </select>
-                    <label htmlFor='model'>Model</label>
-                    <select className='new-bike-select' form='new-bike-form' name='model' type='select'>
-                        <option value="DEFAULT" disabled>Choose a model ...</option>
-                        {this.state.modelOptions.map(model =>
-                            <option onClick={this.handleModelSelect}
-                                    key={model[1].mfr_bike_id}>{model[1].child}
-                            </option>
-                        )}
-                    </select>
-                    <label htmlFor='year'>Year</label>
-                    <select className='new-bike-select' form='new-bike-form'  name='year' type='select'>
-                        <option value="DEFAULT" disabled>Choose a year ...</option>
-                        {this.state.yearOptions.map(year =>
-                            <option onClick={this.handleYearSelect}
-                                    key={year[1].mfr_bike_id} value={year[1].mfr_bike_id}>{year[1].child}
-                            </option>
-                        )}
-                    </select>
-                    <label htmlFor='size'>Size</label>
-                    <select className='new-bike-select' form='new-bike-form' name='size' type='select'>
-                        <option value="DEFAULT" disabled>Choose a size ...</option>
-                        {this.state.sizeOptions.map(size =>
-                            <option key={size.geo_id}
-                                    value={size.geo_id}>{size.size}
-                            </option>
-                        )}
-                    </select>
-                    <div>
+    renderModel() {
+        return (
+            <ul className='ul-items'>
+                {this.state.modelOptions.map(model =>
+                    <li className='list-item ui-model' key={model[1].mfr_bike_id}>
+                        <label className='list-item-label' htmlFor='model'>{model[1].child}</label>
+                        <input className='form-radio' type='radio' name='model' onClick={this.handleModelSelect}
+                               value={model[1].child}/>
+                    </li>
+                )}
+            </ul>
+        )
+    }
+
+    renderYear() {
+        return (
+            <ul className='ul-items'>
+                {this.state.yearOptions.map(year =>
+                    <li className='list-item ui-year' key={year[1].mfr_bike_id}>
+                        <label className='list-item-label' htmlFor='year'>{year[1].child}</label>
+                        <input className='form-radio' type="radio" name="year" onClick={this.handleYearSelect}
+                               value={year[1].mfr_bike_id}/>
+                    </li>
+                )}
+            </ul>
+        )
+    }
+
+    renderSize() {
+        return (
+            <ul className='ul-items'>
+                {this.state.sizeOptions.map(size =>
+                    <li className='list-item ui-size' key={size.geo_id}>
+                        <label className='list-item-label' htmlFor='year'>{size.size}</label>
+                        <input className='form-radio' type="radio" name="size" value={size.geo_id}/>
+                    </li>
+                )}
+            </ul>
+        )
+    }
+
+    render() {
+        return (<div className='form-container'>
+                <form id='new-bike-form' className='poc-new-bike-form' onSubmit={this.handleAddBicycle}>
+                    {this.renderMake()}
+                    {this.state.modelOptions.length === 0 ? <div/> : this.renderModel()}
+                    {this.state.yearOptions.length === 0 ? <div/> : this.renderYear()}
+                    {this.state.sizeOptions.length === 0 ? <div/> : this.renderSize()}
                     <label htmlFor='nick_name'>Nickname</label>
-                    <Input className='Input' name='nick_name' defaultValue={nick_name}/>
-                    <div className='new-bike-event-buttons'>
-                        <button className='Button' type='submit'>Save</button>
-                        <button className='Button' onClick={this.handleCancel} type='reset'>Cancel</button>
-                    </div>
+                    <Input className='Input' name='nick_name' required/>
+                    <div className='position-button-div'>
+                        <button className='position-event-button' type='submit'>Save</button>
+                        <button className='position-event-button' onClick={this.handleCancel} type='reset'>Cancel
+                        </button>
                     </div>
                 </form>
-            </Fragment>
+            </div>
         )
     }
 }

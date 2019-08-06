@@ -1,0 +1,79 @@
+.form-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.poc-new-bike-form {
+    width: 400px;
+}
+
+.ul-items{
+    padding: 5px;
+    margin: 5px;
+    background-color: #ffffff;
+
+    border-radius: 3px;
+}
+
+.ui-make,
+.ui-model,
+.ui-year,
+.ui-size{
+
+}
+
+.list-item {
+    list-style: none;
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.list-item-label
+{
+   align-self: center;
+    font: 15px/1.7 'Open Sans', sans-serif;
+    color: #333;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    cursor: pointer;
+}
+
+.form-radio
+{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    display: inline-block;
+    position: sticky;
+    background-color: #f1f1f1;
+    color: #666;
+    top: 10px;
+    height: 30px;
+    width: 30px;
+    max-width: 30px;
+    border: 1 solid ;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-right: 7px;
+    outline: none;
+}
+.form-radio:checked::before
+{
+    position: absolute;
+    font: 13px/1 'Open Sans', sans-serif;
+    left: 11px;
+    top: 7px;
+    content: '\02143';
+    transform: rotate(40deg);
+}
+.form-radio:hover
+{
+    background-color: #f7f7f7;
+}
+.form-radio:checked
+{
+    background-color: #f1f1f1;
+}
