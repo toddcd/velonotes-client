@@ -16,12 +16,12 @@ export default class RegistrationPage extends Component {
 
   render() {
     return (
-      <Section className='RegistrationPage'>
+      <section className='registration-page'>
         <h2>Register</h2>
         <RegistrationForm
           onRegistrationSuccess={this.handleRegistrationSuccess}
         />
-      </Section>
+      </section>
     )
   }
 }

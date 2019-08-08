@@ -12,7 +12,6 @@ class BicycleGrid extends Component {
                 {
                     headerName: "Bike Details", children: [
                         {headerName: "BikeId", field: "user_bike_id", width: 100, filter: true},
-                        {headerName: "active", field: "active", width: 90},
                         {headerName: "make", field: "make", width: 150, filter: true},
                         {headerName: "model", field: "model", width: 150},
                         {headerName: "date_created", field: "date_created", width: 150},
@@ -41,6 +40,7 @@ class BicycleGrid extends Component {
                 {
                     headerName: "Position",
                     children: [
+                        {headerName: "active", field: "active", width: 90},
                         {headerName: "name", field: "name"},
                         {headerName: "seat", field: "seat"},
                         {headerName: "setback", field: "setback"},

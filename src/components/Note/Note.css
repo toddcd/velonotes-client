@@ -1,3 +1,10 @@
+.add-note-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .note-container {
     padding: 1px;
     background-color: #ffffff;
@@ -11,21 +18,24 @@
     border: 0;
     color: #ffffff;
 }
-.div-spacer{
+
+.div-spacer {
     flex: 1;
     align-self: center;
     justify-self: flex-start;
 }
+
 .div-font-awesome-chevron {
     display: flex;
     justify-content: flex-end;
 }
 
-.font-awesome-chevron{
+.font-awesome-chevron {
     flex: 1;
     align-self: center;
     color: #dae8dd;
 }
+
 .btn-content {
     display: flex;
     flex: 1;
@@ -42,6 +52,7 @@
     border: 1px solid #ddd;
     display: block;
     font-size: 1.1em;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     margin-bottom: 10px;
     padding: 10px;
     text-align: left;
@@ -51,9 +62,10 @@
 
 .new-note-textarea {
     resize: vertical;
-    width: 96%;
+    width: 100%;
 }
-.note-content{
+
+.note-content {
     text-align: start;
     padding: 0 10px 5px 10px;
     background-color: #ffffff;
@@ -61,11 +73,18 @@
 }
 
 .new-note-form {
-    flex-direction: column;
-    align-content: center;
-    justify-content: center;
-    padding: 30px;
-    text-align: start;
+   width: 80%;
+    max-width: 500px;
+}
+
+.note-type-items {
+    padding: 5px;
+    margin: 5px 0 20px 0;
+    background-color: #ffffff;
+    border-radius: 3px;
+    height: auto;
+    max-height: 200px;
+    overflow-y: auto;
 }
 
 .delete-edit-button {
@@ -93,3 +112,68 @@
     display: block
 }
 
+.ul-items {
+    padding: 5px;
+    margin: 5px 0 20px 0;
+    background-color: #ffffff;
+    border-radius: 3px;
+    height: auto;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.list-item {
+    list-style: none;
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 5px;
+    border-top: 1px solid #f1f1f1;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.list-item-label {
+    align-self: center;
+    font: 15px/1.7 'Open Sans', sans-serif;
+    color: #333;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    cursor: pointer;
+}
+
+.note-radio {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    display: inline-block;
+    position: sticky;
+    background-color: #dae8dd;
+    color: #666;
+    top: 10px;
+    height: 30px;
+    width: 30px;
+    max-width: 30px;
+    border: 1px solid #779d8f;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-right: 7px;
+    outline: none;
+}
+
+.note-radio:checked::before {
+    position: absolute;
+    font: 13px/1 'Open Sans', sans-serif;
+    left: 11px;
+    top: 7px;
+    content: '\02143';
+    transform: rotate(40deg);
+}
+
+.note-radio:hover {
+    background-color: #f7f7f7;
+}
+
+.note-radio:checked {
+    background-color: #f1f1f1;
+}

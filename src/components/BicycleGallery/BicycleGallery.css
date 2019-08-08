@@ -82,3 +82,17 @@
   text-align: center;
   opacity: 0.85;
 }
+
+.add-bike-event-button {
+  background-color: #9ba59d;
+  font-size: 1.1em;
+  min-width: 75px;
+  padding: 5px;
+  margin: 5px;
+  font-weight: bold;
+  box-shadow: none;
+  border-radius: 3px;
+  border: 0;
+  color: #ffffff;
+  cursor: pointer;
+}

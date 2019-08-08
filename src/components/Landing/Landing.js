@@ -9,28 +9,38 @@ export default class Landing extends Component {
 
     render() {
         return (
-            <div >
-                <section className='background-image-top'>
-                    <header>
-                        <h3>Record your bicycle's data</h3>
-                        <p>fit measurements, tire psi, etc...</p>
+            <div className='landing-container'>
+                <section>
+                    <div className='landing-image'>
+                        <img className='landing-image' src={require("../../images/velonoteslogo_v2.png")}/>
+                    </div>
+                    <header className='landing-content'>
+                        <h3>Keep track of bicycle fit data and notes</h3>
                     </header>
-                    <p>[<em>placeholder for screenshot of velo notepad interface</em>]</p>
-                    <p>Velo Notpad is an easy to use and useful application with the goal of helping cyclists keep detailed notes related to a specific bicycle.</p>
                 </section>
-                <section >
-                    <header>
-                        <h3>Track bicycle info over time</h3>
-                    </header>
-                    <p>[<em>placeholder for screenshot of velo notepad interface</em>]</p>
-                    <p>Data and notes tracked over time can help identify measurements tied to optimal performance, injury origination, or selecting a new bicycle frame or components.</p>
+                <section className='landing-section'>
+                    <div className='landing-image'>
+                        <img  src={require("../../images/landingtop.png")}/>
+                    </div>
+                    <div className='landing-content'>
+                    <p>Fit and position data can help identify measurements tied to optimal performance,
+                        injury origination, or selecting a new bicycle frame or component.</p>
+                    </div>
+                    <div className='landing-image'>
+                        <img className='landing-image' src={require("../../images/bars_v2.png")}/>
+                    </div>
                 </section>
-                <section className='background-image-bottom'>
-                    <header>
-                        <h3>Analyze and gain insight</h3>
-                    </header>
-                    <p>[<em>placeholder for screenshot of velo notepad data grid</em>]</p>
-                    <p>Sort, filter, and compare data between current and retired bicycles to gain insight and make informed decisions</p>
+                <section className='landing-section'>
+                    <div className='landing-content'>
+                        <p>Notes can help keep a record of what and when maintenence was done or
+                            why setup changes were made.</p>
+                    </div>
+                    <div className='landing-image'>
+                        <img className='landing-image' src={require("../../images/landingbottom.png")}/>
+                    </div>
+                    <div className='landing-image'>
+                        <img className='landing-image' src={require("../../images/bars_v2.png")}/>
+                    </div>
                 </section>
             </div>
         )

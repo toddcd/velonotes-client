@@ -18,12 +18,11 @@ export default class LandingPage extends Component {
 
     render() {
         return (
-            <Section className='LandingPage'>
-                <h2>Velonotes</h2>
+            <section className='LandingPage'>
                 <Landing
                     //onLoginSuccess={this.handleLoginSuccess}
                 />
-            </Section>
+            </section>
         )
     }
 }

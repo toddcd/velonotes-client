@@ -1,18 +1,20 @@
-.background-image-top {
-    background-image: url("../../images/landing600x267logo.png") ;
-    background-repeat: no-repeat;
-    background-size: cover;
-    border-radius: 10px;
-}
-.background-image-mid {
-    background-image: url("../../images/landing600x267mid.png") ;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-.background-image-bottom {
-    background-image: url("../../images/landing600x267bottom.png") ;
-    background-repeat: no-repeat;
-    background-size: cover;
-    border-radius: 10px;
+.landing-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
+.landing-section {
+    margin: 0;
+    padding: 0;
+}
+
+.landing-image {
+    margin-top: 10px;
+    max-width: 650px;
+}
+
+.landing-content{
+    max-width: 600px;
+}

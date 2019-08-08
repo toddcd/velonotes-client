@@ -9,6 +9,7 @@ import './BicycleGalleryPage.css'
 export default class BicycleGalleryPage extends Component {
     static contextType = BicyclesContext
 
+    //TODO -- change calls in component did mount to a promise.all block
     componentDidMount() {
         this.context.clearError()
         BicycleApiService.getBikes()
@@ -35,9 +36,6 @@ export default class BicycleGalleryPage extends Component {
             return (
                 <Fragment>
                     <div >
-                        <Link to={`/gallery/poc`} className='gallery_new_bike'>
-                            <button className='Button'>POC</button>
-                        </Link>
                         <Link to={`/gallery/newbike`} className='gallery_new_bike'>
                             <button className='Button'>Add Bicycle</button>
                         </Link>
@@ -66,11 +64,11 @@ export default class BicycleGalleryPage extends Component {
     render() {
         const {error} = this.context
         return (
-            <Section >
+            <section >
                 {error
                     ? <p className='red'>{'There was an error. Are you logged in?'}</p>
                     : this.renderBicycleGallery()}
-            </Section>
+            </section>
         )
     }
 }

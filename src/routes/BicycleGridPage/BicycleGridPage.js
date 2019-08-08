@@ -26,7 +26,6 @@ export default class BicycleGridPage extends Component {
         bikeList.map(bike =>
             rowData.push(
                 {
-                    active	:bike[1].active,
                     bb_drop	:bike[1].bb_drop,
                     chainstay:bike[1].chainstay,
                     crank:bike[1].crank,
@@ -43,6 +42,7 @@ export default class BicycleGridPage extends Component {
                     model:bike[1].model,
                     name:bike[1].name,
                     position_id:bike[1].position_id,
+                    active	:bike[1].active,
                     rake:bike[1].rake,
                     reach:bike[1].reach,
                     seat:bike[1].seat,
@@ -84,11 +84,11 @@ export default class BicycleGridPage extends Component {
     render() {
         const {error} = this.context
         return (
-            <Section  >
+            <section  >
                 {error
                     ? <p className='red'>{'There was an error. Are you logged in?'}</p>
                     : this.renderBicycleGallery()}
-            </Section>
+            </section>
         )
     }
 }

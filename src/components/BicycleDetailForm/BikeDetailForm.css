@@ -8,6 +8,14 @@
     cursor: pointer;
 }
 
+.bike-detail-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+}
+
 .geometry-data {
     display: flex;
     margin-bottom: 1px;
@@ -49,11 +57,12 @@
 
 }
 
-.position-section, notes-section {
+.position-section, .notes-section {
     display: flex;
     flex-direction: column;
     padding: 5px 0 5px 0;
-
+    width: 100%;
+    max-width: 800px;
 }
 
 .left {

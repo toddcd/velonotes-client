@@ -93,7 +93,7 @@ export default class BikeDetailForm extends Component {
         }
 
         return (
-            <Fragment>
+           <div className='bike-detail-container'>
                 <section className='detail-section-top'>
                     <div className='detail-section'>
                         <div className='left'>
@@ -106,7 +106,6 @@ export default class BikeDetailForm extends Component {
                             {bike.purchaseDate}
                         </div>
                     </div>
-
                     <div className="geometry-container">
                         <button className="btn btn-block" onClick={this.toggle}>
                             <div className='btn-content'>
@@ -135,7 +134,7 @@ export default class BikeDetailForm extends Component {
                     </div>
                     {this.renderPositions()}
                 </section>
-                <section className='note-section'>
+                <section className='notes-section'>
                     <div className='button-right'>
                         <Link className='button-link' to={`/gallery/${bike.user_bike_id}/addnote`}>
                             <button className='addnote-button'>Add Note</button>
@@ -143,7 +142,7 @@ export default class BikeDetailForm extends Component {
                     </div>
                     {this.renderNotes()}
                 </section>
-            </Fragment>
+           </div>
         )
     }
 }

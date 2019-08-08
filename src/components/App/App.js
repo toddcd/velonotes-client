@@ -12,7 +12,6 @@ import BicycleGridPage from "../../routes/BicycleGridPage/BicycleGridPage";
 import AddEditNote from "../Note/AddEditNote";
 import AddEditPosition from "../Position/AddEditPosition";
 import AddEditBicycle from "../BicycleGallery/AddEditBicycle";
-import AddEditBicyclePOC from "../BicycleGallery/AddEditBicyclePOC";
 
 class App extends Component {
     state = { hasError: false }
@@ -59,13 +58,6 @@ class App extends Component {
                         />
                         <Route
                             exact
-                            path={'/gallery/poc'}
-                            render={(renderProps) =>
-                                (<AddEditBicyclePOC {...renderProps} />
-                                )}
-                        />
-                        <Route
-                            exact
                             path={'/grid'}
                             component={BicycleGridPage}
                         />
@@ -107,7 +99,11 @@ class App extends Component {
                         />
                     </Switch>
                 </main>
-                <footer role="contentinfo" className='footer'>TD3 Studios</footer>
+                <footer role="contentinfo" className='footer'>
+                    <div>
+                        <a href={'http://td3studios.com'} target={"_blank"}>TD3 Studios</a>
+                    </div>
+                </footer>
             </div>
         );
     }

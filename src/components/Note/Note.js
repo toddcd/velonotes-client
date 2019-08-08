@@ -33,7 +33,7 @@ export default class Note extends Component {
                 <div className="note-container">
                     <button className="btn btn-block" onClick={this.toggle}>
                         <div className='btn-content'>
-                            {note.type} ({note.note.substring(0, 12)}...)
+                            Note: {note.type} ({note.note.substring(0, 12)}...)
                         </div>
                         <div className='div-font-awesome-chevron'>
                             {this.state.open ? <FontAwesomeIcon icon="chevron-up" className='font-awesome-chevron'/>

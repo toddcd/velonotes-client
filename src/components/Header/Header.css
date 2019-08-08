@@ -8,7 +8,7 @@
 
 .Header h1 {
   align-self: center;
-  margin: 5px;
+  margin: 12px;
 }
 
 .Header a {
@@ -48,13 +48,13 @@
 .Header__logged-in-container {
   display: flex;
   flex-direction: row;
-  margin: 15px 0 0 0 ;
+  margin: 15px 10px 0 0 ;
 }
 
 .Header__logged-out-container {
   display: flex;
   flex-direction: row;
-  margin: 8px 0 0 0 ;
+  margin: 8px 10px 0 0 ;
 }
 
 .Header__logged-in a {

@@ -34,7 +34,7 @@ export default class Position extends Component {
             <div className="position-container">
                 <button className="btn btn-block" onClick={ this.toggle }>
                     <div className='btn-content'>
-                    {this.props.position.name}
+                       Position: {this.props.position.name}
                     </div>
                     <div className='div-font-awesome-chevron'>
                         {this.state.open ? <FontAwesomeIcon icon="chevron-up" className='font-awesome-chevron'/>

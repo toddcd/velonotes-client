@@ -62,11 +62,11 @@ export default class BicycleDetailPage extends Component {
     render() {
         const {error} = this.context
         return (
-            <Section list className='BikeDetailPage'>
+            <section className='BikeDetailPage'>
                 {error
                     ? <p className='red'>There was an error. Are you logged in?</p>
                     : this.renderBikeDetail()}
-            </Section>
+            </section>
         )
     }
 }

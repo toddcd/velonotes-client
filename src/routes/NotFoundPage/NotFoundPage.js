@@ -4,9 +4,9 @@ import { Section } from '../../components/Utils/Utils'
 export default class NotFoundPage extends Component {
   render() {
     return (
-      <Section className='NotFoundPage'>
+      <section className='NotFoundPage'>
         <h2>404 - Page not found</h2>
-      </Section>
+      </section>
     )
   }
 }

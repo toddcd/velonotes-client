@@ -19,15 +19,15 @@ export default class Header extends Component {
             <div className='Header__logged-in-container'>
                 <div className='Header__logged-in'>
                     <Link
-                        onClick={this.handleLogoutClick}
-                        to='/'>
-                        Logout
+                        to='/gallery'>
+                        Gallery
                     </Link>
                 </div>
                 <div className='Header__logged-in'>
                     <Link
-                        to='/gallery'>
-                        Gallery
+                        onClick={this.handleLogoutClick}
+                        to='/'>
+                        Logout
                     </Link>
                 </div>
             </div>

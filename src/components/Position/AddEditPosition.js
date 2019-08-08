@@ -133,9 +133,9 @@ export default class AddEditPosition extends Component {
         } = this.setFormValues()
         return (
             <div className='add-position-container'>
-                <form data-position_id={position_id} onSubmit={handleSubmit}>
+                <form className='new-position-form' data-position_id={position_id} onSubmit={handleSubmit}>
                     <h2 className='position-title'>{page_title}</h2>
-                    <Section className='position-detail-section'>
+                    <section className='position-detail-section'>
                         <label htmlFor='name'>Name</label>
                         <input className='Input' type='text' name='name' defaultValue={name}/>
                         <label htmlFor='description'>Description</label>
@@ -151,9 +151,9 @@ export default class AddEditPosition extends Component {
                                 </label>
                             </div>
                         </div>
-                    </Section>
+                    </section>
                     <div className='position-component-setup'>
-                        <Section className='position-component-section'>
+                        <section className='position-component-section'>
                             <h3>Components</h3>
                             <label htmlFor='stem'>Stem Length</label>
                             <input className='Input' type='number' name='stem' defaultValue={stem}/>
@@ -169,8 +169,8 @@ export default class AddEditPosition extends Component {
                             <input className='Input' type='number' step=".50" name='crank_q' defaultValue={crank_q}/>
                             <label htmlFor='seat'>Seat Width</label>
                             <input className='Input' type='number' name='seat' defaultValue={seat}/>
-                        </Section>
-                        <Section className='position-section-setup'>
+                        </section>
+                        <section className='position-section-setup'>
                             <h3>Setup</h3>
                             <label htmlFor='seat_height'>Seat Height</label>
                             <input className='Input' type='number' step=".50" name='seat_height' defaultValue={seat_height}/>
@@ -180,7 +180,7 @@ export default class AddEditPosition extends Component {
                             <input className='Input' type='number' step=".50" name='handlebar_drop' defaultValue={handlebar_drop}/>
                             <label htmlFor='setback'>Setback</label>
                             <input className='Input' type='number' step=".50" name='setback' defaultValue={setback}/>
-                        </Section>
+                        </section>
                     </div>
                     <div className='position-button-div'>
                         <button className='position-event-button' type='submit'>Save</button>
