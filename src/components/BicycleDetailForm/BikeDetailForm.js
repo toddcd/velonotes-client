@@ -100,11 +100,6 @@ export default class BikeDetailForm extends Component {
                             {bike.make}<br/>
                             {bike.model}<br/>
                         </div>
-                        <div className='right'>
-                            {bike.nickName}<br/>
-                            {bike.serial}<br/>
-                            {bike.purchaseDate}
-                        </div>
                     </div>
                     <div className="geometry-container">
                         <button className="btn btn-block" onClick={this.toggle}>

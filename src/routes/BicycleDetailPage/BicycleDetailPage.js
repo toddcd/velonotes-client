@@ -48,7 +48,7 @@ export default class BicycleDetailPage extends Component {
         if (bike) {
             return (
                 <>
-                    <h2>{bike.make}</h2>
+                    <h2>{bike.nick_name}</h2>
                     <BikeDetailForm
                         deleteNote={this.handleDeleteNote}
                         deletePosition={this.handleDeletePosition}
