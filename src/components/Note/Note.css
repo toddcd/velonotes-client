@@ -122,6 +122,10 @@
     overflow-y: auto;
 }
 
+.list-item-first {
+    border-top: 1px solid #a5be00;
+}
+
 .list-item {
     list-style: none;
     align-self: center;
@@ -129,9 +133,9 @@
     flex-direction: row;
     justify-content: space-between;
     padding: 5px;
-    border-top: 1px solid #f1f1f1;
-    border-bottom: 1px solid #f1f1f1;
+    border-bottom: 1px solid #a5be00;
 }
+
 
 .list-item-label {
     align-self: center;

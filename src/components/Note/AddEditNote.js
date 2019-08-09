@@ -77,7 +77,7 @@ export default class AddEditNote extends Component {
                 <form className='new-note-form' data-note_id={note_id} onSubmit={handleSubmit}>
                     <label htmlFor='type'>Note Type</label>
                     <div className='note-type-items'>
-                        <div className='list-item'>
+                        <div className='list-item list-item-first'>
                             <label className='list-item-label' htmlFor='model'>Maintenance</label>
                             <input className='note-radio' type='radio' name='type' value='maintenance' checked={(note_type === 'maintenance' ? 'checked' : null )} />
                         </div>

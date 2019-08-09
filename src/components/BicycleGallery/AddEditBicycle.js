@@ -143,8 +143,8 @@ export default class AddEditBicycle extends Component {
             <Fragment>
                 <label htmlFor='ul-items'>Make</label>
                 <ul className='ul-items'>
-                    {this.state.make.map(make =>
-                        <li className='list-item ui-make' key={make[1].mfr_bike_id}>
+                    {this.state.make.map((make, i) =>
+                        <li className={i === 0 ? 'list-item ui-year ui-first' : 'list-item ui-year'} key={make[1].mfr_bike_id}>
                             <label className='list-item-label' htmlFor='make'>{make[1].child}</label>
                             <input className='form-radio' type="radio" name="make" onClick={this.handleMakeSelect}
                                    value={make[1].parent}/>
@@ -160,8 +160,8 @@ export default class AddEditBicycle extends Component {
             <Fragment>
                 <label htmlFor='ul-items'>Model</label>
                 <ul className='ul-items'>
-                    {this.state.modelOptions.map(model =>
-                        <li className='list-item ui-model' key={model[1].mfr_bike_id}>
+                    {this.state.modelOptions.map((model,i) =>
+                        <li className={i === 0 ? 'list-item ui-year ui-first' : 'list-item ui-year'} key={model[1].mfr_bike_id}>
                             <label className='list-item-label' htmlFor='model'>{model[1].child}</label>
                             <input className='form-radio' type='radio' name='model' onClick={this.handleModelSelect}
                                    value={model[1].child}/>
@@ -177,8 +177,8 @@ export default class AddEditBicycle extends Component {
             <Fragment>
                 <label htmlFor='ul-items'>Year</label>
                 <ul className='ul-items'>
-                    {this.state.yearOptions.map(year =>
-                        <li className='list-item ui-year' key={year[1].mfr_bike_id}>
+                    {this.state.yearOptions.map((year, i) =>
+                        <li className={i === 0 ? 'list-item ui-year ui-first' : 'list-item ui-year'} key={year[1].mfr_bike_id}>
                             <label className='list-item-label' htmlFor='year'>{year[1].child}</label>
                             <input className='form-radio' type="radio" name="year" onClick={this.handleYearSelect}
                                    value={year[1].mfr_bike_id}/>
@@ -194,8 +194,8 @@ export default class AddEditBicycle extends Component {
             <Fragment>
                 <label htmlFor='ul-items'>Size</label>
                 <ul className='ul-items'>
-                    {this.state.sizeOptions.map(size =>
-                        <li className='list-item ui-size' key={size.geo_id}>
+                    {this.state.sizeOptions.map((size,i) =>
+                        <li className={i === 0 ? 'list-item ui-year ui-first' : 'list-item ui-year'} key={size.geo_id}>
                             <label className='list-item-label' htmlFor='year'>{size.size}</label>
                             <input className='form-radio' type="radio" name="size" value={size.geo_id}/>
                         </li>
