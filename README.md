@@ -2,8 +2,6 @@ Velonotes
 
 http://velonotes.com
 
-<img src="readme-images/landing_page.png"/>
-
 ![Alt text](./readme-images/landing_page.png "Screen Shots")
 ![Alt text](./readme-images/gallery_page.png "Screen Shots")
 
@@ -11,7 +9,6 @@ What is velonotes?
 
 ![Alt text](./readme-images/add_bike_page.png "Screen Shots")
 ![Alt text](./readme-images/bike_detail_page.png "Screen Shots")
-
 
 Snacks are a quintessential part of cycling culture. Grabbing a pre-ride coffee, mid-ride scone, or post-ride tacos and beer can often be just as important as the ride itself. 
 
@@ -24,7 +21,6 @@ Snack finder's goal is to help locate quality snacks to fill this essential need
 
 Key Technologies:
 
-HTML5
-Javascipt
-JQuery
+ReactJS
+NodeJS
 CSS
