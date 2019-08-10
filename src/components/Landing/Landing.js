@@ -25,7 +25,7 @@ export default class Landing extends Component {
                     <div className='landing-content'>
                         <p>Fit and position data can help identify measurements tied to optimal performance,
                             injury origination, or selecting a new bicycle frame or component.</p>
-                        <p>Notes can help keep a record of what and when maintenence was done or
+                        <p>Notes can help keep a record of what and when maintenance was done or
                             why setup changes were made.</p>
                     </div>
                     <div className='landing-image'>

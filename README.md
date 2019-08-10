@@ -7,20 +7,21 @@ http://velonotes.com
 
 What is velonotes?
 
+Velonotes is place where for storing bicycle fit and position data for your fleet of bicycles.
+Keep a running history of changes made to your bicycles setup along with notes to keep track of maintenance and other modifications done while you own the bike. 
+
 ![Alt text](./readme-images/add_bike_page.png "Screen Shots")
 ![Alt text](./readme-images/bike_detail_page.png "Screen Shots")
 
-Snacks are a quintessential part of cycling culture. Grabbing a pre-ride coffee, mid-ride scone, or post-ride tacos and beer can often be just as important as the ride itself. 
+Fit and position data tracked over time can help identify measurements tied to optimal performance, injury origination, or selecting a new bicycle frame or component.
 
 ![Alt text](./readme-images/add_position_page.png "Screen Shots")
 ![Alt text](./readme-images/add_note_page.png "Screen Shots")
 
-Snack finder's goal is to help locate quality snacks to fill this essential need. This is done by leveraging Google's APIs along with specific keywords to target independent style establishments with artisan coffee, micro brews, or street tacos.
+Notes can help keep a record of what and when maintenance was done or why setup changes were made.
 
 ![Alt text](./readme-images/grid_page.png "Screen Shots")
 
 Key Technologies:
-
 ReactJS
 NodeJS
-CSS
