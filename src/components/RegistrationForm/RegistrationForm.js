@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Button, Input, Required} from '../Utils/Utils'
+import {Required} from '../Utils/Utils'
 import AuthApiService from '../../services/auth-api-service'
 import './RegistrationForm.css'
 
@@ -21,11 +21,9 @@ export default class RegistrationForm extends Component {
             user_name: user_name.value,
             password: password.value,
             full_name: full_name.value,
-            // nickname: nick_name.value,
         })
             .then(user => {
                 full_name.value = ''
-                // nick_name.value = ''
                 user_name.value = ''
                 password.value = ''
                 this.props.onRegistrationSuccess()

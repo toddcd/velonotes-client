@@ -35,10 +35,8 @@ const BicycleApiService = {
             .then(res => {
                     if (!res.ok) {
                         throw Error(res.statusText);
-                        //res.json().then(e => Promise.reject(e)).then()
                     } else if (res.status === 204) {
                         const nodata = {info: 'No bikes for current user'}
-                        console.log(nodata)
                         return nodata
                     } else
                         return res.json()
@@ -54,10 +52,8 @@ const BicycleApiService = {
             .then(res => {
                     if (!res.ok) {
                         throw Error(res.statusText);
-                        //res.json().then(e => Promise.reject(e)).then()
                     } else if (res.status === 204) {
                         const nodata = {info: 'No bikes for current user'}
-                        console.log(nodata)
                         return nodata
                     } else
                         return res.json()
@@ -91,19 +87,6 @@ const BicycleApiService = {
                     : res.json()
             )
     },
-    // deleteBike(bikeId) {
-    //     return fetch(`${config.API_ENDPOINT}/bicycle/${bikeId}`, {
-    //         method: 'DELETE',
-    //         headers: {
-    //             "authorization": `bearer ${TokenService.getAuthToken()}`,
-    //         },
-    //     })
-    //         .then(res => {
-    //             if (!res.ok) {
-    //                 res.json().then(e => Promise.reject(e))
-    //             }
-    //         })
-    // },
     postPosition(position) {
         return fetch(`${config.API_ENDPOINT}/positions`, {
             method: "POST",

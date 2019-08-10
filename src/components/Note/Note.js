@@ -1,4 +1,4 @@
-import React, {Component, Fragment} from 'react'
+import React, {Component} from 'react'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faChevronDown, faChevronUp} from '@fortawesome/free-solid-svg-icons'
 import {library} from '@fortawesome/fontawesome-svg-core'
@@ -27,7 +27,6 @@ export default class Note extends Component {
 
     render() {
         const note = this.props.note
-        console.log(note)
         const bike = this.props.bike
         return (
                 <div className="note-container">

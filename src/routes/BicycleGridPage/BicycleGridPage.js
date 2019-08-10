@@ -1,10 +1,8 @@
 import React, {Component, Fragment} from 'react'
 import { Link } from 'react-router-dom'
-//import { Section } from '../../components/Utils/Utils'
 import BicycleGrid from '../../components/BicycleGrid/BicycleGrid'
 import BicycleApiService from "../../services/bicycle-api-service";
 import BicyclesContext from "../../context/BicyclesContext";
-import {Section} from "../../components/Utils/Utils";
 import './GridViewPage.css'
 
 //import './BicycleGridPage.css'

@@ -1,4 +1,4 @@
-import React, {Component, Fragment} from 'react'
+import React, {Component} from 'react'
 import BikeContext from "../../context/BikeContext";
 import BicycleApiService from "../../services/bicycle-api-service";
 import './Note.css'
@@ -30,8 +30,6 @@ export default class AddEditNote extends Component {
             note_type: event.target.type.value,
             note: event.target.note.value
         }
-
-        console.log(note)
 
         BicycleApiService.patchNote(bikeId, note)
             .then(() =>

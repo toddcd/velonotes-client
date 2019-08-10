@@ -2,7 +2,6 @@ import React, {Component} from 'react'
 import BikeContext from "../../context/BikeContext";
 import BicycleApiService from "../../services/bicycle-api-service";
 import './Position.css'
-import {Section} from "../Utils/Utils";
 
 export default class AddEditPosition extends Component {
 
@@ -41,8 +40,6 @@ export default class AddEditPosition extends Component {
         const {bikeId} = this.props.match.params
         const positionId = event.target.dataset.position_id
 
-        console.log(this.props)
-
         const position = {
             position_id: parseFloat(positionId),
             user_bike_id: parseFloat(bikeId),
@@ -54,7 +51,7 @@ export default class AddEditPosition extends Component {
             handlebar: parseFloat(event.target.handlebar.value),
             handlebar_bend: event.target.handlebar_bend.value,
             crank: parseFloat(event.target.crank.value),
-            crank_q: parseFloat(event.target.crank_q.value),
+            crank_q: (event.target.crank_q.value ? parseFloat(event.target.crank_q.value) : 0),
             seat: parseFloat(event.target.seat.value),
             seat_height: parseFloat(event.target.seat_height.value),
             handlebar_reach: parseFloat(event.target.handlebar_reach.value),
@@ -93,7 +90,7 @@ export default class AddEditPosition extends Component {
             'handlebar': null,
             'handlebar_bend': null,
             'crank': null,
-            'crank_q': null,
+            'crank_q': 147,
             'seat': '',
             'seat_height': null,
             'handlebar_reach': null,

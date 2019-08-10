@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import BikeContext from '../../context/BikeContext'
 import BicycleApiService from '../../services/bicycle-api-service'
-import {Section} from '../../components/Utils/Utils'
 import BikeDetailForm from '../../components/BicycleDetailForm/BikeDetailForm'
 import './BicycleDetailPage.css'
 

@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-//import {Button, Input, Section} from '../Utils/Utils'
 import './Position.css'
 import {Link} from "react-router-dom";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
@@ -66,9 +65,9 @@ export default class Position extends Component {
                             <br/>
                             <br/>
                             <br/>
-                            Seat Height (C-Top): {position.seatHeight}<br/>
-                            Bar Reach (C-Tip): {position.reach}<br/>
-                            Bar Drop: {position.drop}<br/>
+                            Seat Height (C-Top): {position.seat_height}<br/>
+                            Bar Reach (C-Tip): {position.handlebar_reach}<br/>
+                            Bar Drop: {position.handlebar_drop}<br/>
                             Setback: {position.setback}<br/>
                         </div>
                     </div>

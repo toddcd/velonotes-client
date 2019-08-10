@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import Landing from '../../components/Landing/Landing'
-import { Section } from '../../components/Utils/Utils'
 
 export default class LandingPage extends Component {
     static defaultProps = {
@@ -19,9 +18,7 @@ export default class LandingPage extends Component {
     render() {
         return (
             <section className='LandingPage'>
-                <Landing
-                    //onLoginSuccess={this.handleLoginSuccess}
-                />
+                <Landing />
             </section>
         )
     }

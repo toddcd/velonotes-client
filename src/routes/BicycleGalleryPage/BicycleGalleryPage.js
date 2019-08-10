@@ -2,7 +2,6 @@ import React, {Component, Fragment} from 'react'
 import {Link} from 'react-router-dom'
 import BicyclesContext from '../../context/BicyclesContext'
 import BicycleApiService from '../../services/bicycle-api-service'
-import {Section} from '../../components/Utils/Utils'
 import BicycleGallery from '../../components/BicycleGallery/BicycleGallery'
 import './BicycleGalleryPage.css'
 

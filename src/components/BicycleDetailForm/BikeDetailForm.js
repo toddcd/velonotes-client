@@ -1,5 +1,4 @@
-import React, {Component, Fragment} from 'react'
-//import {Button, Input, Section} from '../Utils/Utils'
+import React, {Component} from 'react'
 import Position from '../../components/Position/Position'
 import Note from '../../components/Note/Note'
 import './BikeDetailForm.css'

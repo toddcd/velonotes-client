@@ -1,9 +1,7 @@
 import React, {Component, Fragment} from 'react'
 import BicyclesContext from "../../context/BicyclesContext";
 import BicycleApiService from "../../services/bicycle-api-service";
-//import './BicycleGallery.css'
 import './poc.css'
-import {Input} from "../Utils/Utils";
 
 export default class AddEditBicycle extends Component {
     static contextType = BicyclesContext
@@ -131,9 +129,6 @@ export default class AddEditBicycle extends Component {
         if (editBicycle) {
             formValues.title = 'Edit Bicycle'
             formValues.handleSubmit = this.handleUpdateBicycle
-            // formValues.note_id = editNote.note_id
-            // formValues.note_type = editNote.note_type
-            // formValues.note = editNote.note
         }
         return formValues
     }
