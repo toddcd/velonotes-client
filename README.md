@@ -1,6 +1,8 @@
-Velo Notes
+Velonotes
 
 http://velonotes.com
+
+<img src="readme-images/landing_page.png"/>
 
 ![Alt text](./readme-images/landing_page.png "Screen Shots")
 ![Alt text](./readme-images/gallery_page.png "Screen Shots")
