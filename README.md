@@ -7,7 +7,7 @@ What is velonotes?
 ![Alt text](./readme-images/landing_page.png "Screen Shots")&nbsp;&nbsp;&nbsp;&nbsp;
 ![Alt text](./readme-images/gallery_page.png "Screen Shots")
 
-Velonotes is place where for storing bicycle fit and position data for your fleet of bicycles.
+Velonotes is place for storing bicycle fit and position data for your fleet of bicycles.
 Keep a running history of changes made to your bicycles setup along with notes to keep track of maintenance and other modifications done while you own the bike. 
 
 ![Alt text](./readme-images/add_bike_page.png "Screen Shots")&nbsp;&nbsp;&nbsp;&nbsp;
