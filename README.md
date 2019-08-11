@@ -2,10 +2,10 @@ Velonotes
 
 http://velonotes.com
 
+What is velonotes?
+
 ![Alt text](./readme-images/landing_page.png "Screen Shots")
 ![Alt text](./readme-images/gallery_page.png "Screen Shots")
-
-What is velonotes?
 
 Velonotes is place where for storing bicycle fit and position data for your fleet of bicycles.
 Keep a running history of changes made to your bicycles setup along with notes to keep track of maintenance and other modifications done while you own the bike. 
