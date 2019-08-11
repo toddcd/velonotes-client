@@ -23,5 +23,8 @@ Notes can help keep a record of what and when maintenance was done or why setup 
 ![Alt text](./readme-images/grid_page.png "Screen Shots")
 
 Key Technologies:
-ReactJS
-NodeJS
+React 
+CSS
+Node
+Express
+PostgreSQL
