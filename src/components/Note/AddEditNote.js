@@ -77,15 +77,15 @@ export default class AddEditNote extends Component {
                     <div className='note-type-items'>
                         <div className='list-item list-item-first'>
                             <label className='list-item-label' htmlFor='model'>Maintenance</label>
-                            <input className='note-radio' type='radio' name='type' value='maintenance' checked={(note_type === 'maintenance' ? 'checked' : null )} />
+                            <input className='note-radio' type='radio' name='type' value='maintenance' defaultChecked={(note_type === 'maintenance')} />
                         </div>
                         <div className='list-item'>
                             <label className='list-item-label' htmlFor='model'>Setup</label>
-                            <input className='note-radio' type='radio' name='type' value='setup' checked={(note_type === 'setup' ? 'checked' : null )}/>
+                            <input className='note-radio' type='radio' name='type' value='setup' defaultChecked={(note_type === 'setup')}/>
                         </div>
                         <div className='list-item'>
                             <label className='list-item-label' htmlFor='model'>General</label>
-                            <input className='note-radio' type='radio' name='type' value='general'checked={(note_type === 'general' ? 'checked' : null )}/>
+                            <input className='note-radio' type='radio' name='type' value='general'defaultChecked={(note_type === 'general')}/>
                         </div>
                     </div>
 

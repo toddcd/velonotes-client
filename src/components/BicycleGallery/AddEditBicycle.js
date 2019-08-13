@@ -22,21 +22,17 @@ export default class AddEditBicycle extends Component {
         const mlist = Object.entries(makeDataList)
 
         const make = mlist.filter((make) => {
-            if (make[1].type === 'make') {
-                return make[1]
-            }
+            return make[1].type === 'make'
         })
 
         const model = mlist.filter((model) => {
-            if (model[1].type === 'model') {
-                return model[1]
-            }
+            return model[1].type === 'model'
         })
+
         const year = mlist.filter((year) => {
-            if (year[1].type === 'year') {
-                return year[1]
-            }
+            return year[1].type === 'year'
         })
+
         const size = sList.map((size) => {
             return size[1]
         })
@@ -98,7 +94,7 @@ export default class AddEditBicycle extends Component {
         this.setState(
             {
                 sizeOptions: this.state.size.filter(size =>
-                    size.mfr_bike_id == e.target.value
+                    size.mfr_bike_id.toString() === e.target.value.toString()
                 )[0].sizes
             })
     }
@@ -201,12 +197,6 @@ export default class AddEditBicycle extends Component {
     }
 
     render() {
-
-        const {
-            handleSubmit, title, mfr_bike_id,
-            nick_name, geo_id, makeOption,
-            modelOption, yearOption, sizeOption
-        } = this.setFormValues()
 
         return (
             <div className='form-container'>

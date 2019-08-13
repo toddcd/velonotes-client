@@ -29,7 +29,6 @@ export class BicyclesProvider extends Component {
     };
 
     setLoggedIn = loggedIn => {
-        console.log('Logging in: '+ loggedIn)
         this.setState({loggedIn: loggedIn})
     }
 

@@ -40,7 +40,7 @@ export class BikeProvider extends Component {
     removeNote = noteId => {
         let source_bike = this.state.bike
         const notes = source_bike.notes.filter(note => {
-            return note.note_id != noteId
+            return note.note_id !== parseInt(noteId)
         })
         const bike = {
                 geometry: source_bike.geometry,
@@ -58,7 +58,10 @@ export class BikeProvider extends Component {
     removePosition = positionId => {
         let source_bike = this.state.bike
         const positions = source_bike.positions.filter(pos => {
-            return pos.position_id != positionId
+            console.log(pos.position_id)
+            console.log(positionId)
+
+            return pos.position_id !== parseInt(positionId)
         })
         const bike = {
             geometry: source_bike.geometry,
