@@ -1,6 +1,7 @@
 Velonotes
 
-http://velonotes.com
+Live Demo: http://velonotes.com
+Client api: https://github.com/toddcd/velonotes-api
 
 What is velonotes?
 
